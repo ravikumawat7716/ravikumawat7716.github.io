@@ -9,7 +9,7 @@ I pride myself in being a Passionate Python Developer and a Web Developer. I'm a
 - **Email:** <a href="mailto:ravikumawat7716@gmail.com">ravikumawat7716@gmail.com</a>
 - **Phone:** <a href="tel:+919358557716">+91 9358557716</a>
 - **Linkedin:** <a href="https://www.linkedin.com/in/ravikumawat7716">@ravikumawat7716</a>
--  **Resume:** <u><a href="https://drive.google.com/u/0/uc?id=1ED7RtH7nO-fCMXZWMVmjo5WtbxTwRd0V&export=download">Click here to download</a></u>
+-  **Resume:** <u><a href="https://drive.google.com/u/0/uc?id=1KAZhRduUm-xz-qgz3LnFXo99qFjl4NPg&export=download">Click here to download</a></u>
 
 - **Location:** Jaipur , Rajasthan , India
 
