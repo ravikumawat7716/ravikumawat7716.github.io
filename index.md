@@ -54,27 +54,76 @@ I pride myself in being a Passionate Python Developer and a Web Developer. I'm a
 - Selected for 100% Scholarship by Govt of Rajasthan for pursuing Certification Courses from Rajiv Gandhi Centre for Advanced Technology (R-CAT Rajasthan).
 
 ## RELEVANT COURSES AND SKILLS
-### Programming
-- Computational Thinking, Python Programming, Java Programming, Data Structures & Algorithms, System Commands
-- Data Analysis using Numpy, Pandas & Matplotlib, Program Development using Python & Java, Error Handling, Linux Shell - Bash Scripting
-### Development
-- Modern Application Development - I, Modern Application Development - II
-- Web Application Development using HTML, CSS, Bootstrap, JavaScript, Flask, Jinja, VueJs, SQLite
-### Database
-- Database Management Systems
-- SQL, Application Backend Development, Database Design, Database Management using Postgresql
-### Management
-- Business Data Management, Business Analytics
-- Micro Economics, Organization, Interpretation & Presentation of Data using Excel, Data Centric Business Models Development
-### Data Science
-- Mathematics - I, II
-- Statistics - I, II
-- Machine Learning Foundations, Machine Learning Techniques, Machine Learning Practice*, Tools in Data Science*
-- Linear Algebra, Matrix Manipulation, Vector Calculus, Hypothesis Testing, Parameter Estimation, Statistical Modeling, Probability & Optimization
-- Regression Models using Tensorflow, Scikit Learn
-### Humanities
-- English - I, II
-- Communication Skills
+<table>
+  <thead>
+    <tr>
+      <th>Domain</th>
+      <th>Courses</th>
+      <th>Skills</th>
+    </tr>
+  </thead>
+<tbody>
+  <tr>
+    <td>
+Programming
+      </td><td>
+Computational Thinking, Python Programming, Java Programming, Data Structures & Algorithms, System Commands
+        </td><td>
+Data Analysis using Numpy, Pandas & Matplotlib, Program Development using Python & Java, Error Handling, Linux Shell - Bash Scripting
+          </td>
+    </tr>
+  <tr>
+    <td>
+Development
+      </td><td>
+Modern Application Development - I, Modern Application Development - II
+        </td><td>
+Web Application Development using HTML, CSS, Bootstrap, JavaScript, Flask, Jinja, VueJs, SQLite
+          </td>
+     </tr><tr>
+       <td>
+Database
+         </td><td>
+Database Management Systems
+           </td><td>
+SQL, Application Backend Development, Database Design, Database Management using Postgresql
+</td>
+
+  </tr><tr>
+    <td>
+Management
+      </td><td>
+Business Data Management, Business Analytics
+        </td><td>
+Micro Economics, Organization, Interpretation & Presentation of Data using Excel, Data Centric Business Models Development
+</td>
+
+</tr><tr>
+ <td>
+Data Science
+    </td><td>
+Mathematics - I, II
+Statistics - I, II
+Machine Learning Foundations, Machine Learning Techniques, Machine Learning Practice*, Tools in Data Science*
+      </td><td>
+Linear Algebra, Matrix Manipulation, Vector Calculus, Hypothesis Testing, Parameter Estimation, Statistical Modeling, Probability & Optimization
+Regression Models using Tensorflow, Scikit Learn
+</td>
+
+</tr>
+<tr>
+  <td>
+Humanities
+    </td>
+  <td>
+English - I, II
+      </td>
+  <td>
+Communication Skills
+        </td>
+</tr>
+  </tbody>
+  </table>
 * - Ongoing courses
 
 ## PROFESSIONAL EXPERIENCES
