@@ -162,14 +162,9 @@ Communication Skills
   - 📖 API Documentation: Postman
   
   #### Project Features
-  
-  <!-- List the features of your project here -->
-
-#### Email Notifications
-
-Users and admins receive email notifications for various events.
-
-<!-- List the email notification details here -->
+    #### Email Notifications
+    Users and admins receive email notifications for various events.
+    
 
 ## Experience
 
