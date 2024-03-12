@@ -144,34 +144,26 @@ Communication Skills
 - Course Project - Modern Application Development II
 - Implemented Backend Using Flask & Frontend Using Vue.js
 - Web application for theatre management & ticket booking.
-- [GitHub Repository](https://github.com/ravikumawat7716/Show-Ticketing)
-- [Hosted Application URL](https://13.235.83.235/login)
+  - **Check it out:** [Project Link](https://show-ticketing.vercel.app/)
+  - **API Documentation:** [API Docs](https://lnkd.in/dfgznyww)
+  - **GitHub Repository:** [GitHub Repo](https://lnkd.in/d6YcYycv)
 
-
-### 🚀 Latest Project: Modern Application Development II
-
-Excited to share my latest project, "Modern Application Development II!" 🚀
-
-- **Check it out:** [Project Link](http://bit.ly/3ryCQYo)
-- **API Documentation:** [API Docs](https://lnkd.in/dfgznyww)
-- **GitHub Repository:** [GitHub Repo](https://lnkd.in/d6YcYycv)
-
-#### Tech Stack
-
-- ☁️ Cloud Service: Amazon Web Services (AWS)
-- 🔀 Load Balancer & Reverse Proxy Server: NGINX
-- 🐍 WSGI Server: Gunicorn
-- 🔙 Backend Application: Flask (Python)
-- 🖥️ Frontend Application: Vue.js
-- 📧 SMTP Service: Gmail
-- 📦 Caching: Redis
-- 🔄 Backend Tasks: Celery
-- 🔑 Authentication Token: JWT
-- 📖 API Documentation: Postman
-
-#### Project Features
-
-<!-- List the features of your project here -->
+  #### Tech Stack
+  
+  - ☁️ Cloud Service: Amazon Web Services (AWS)
+  - 🔀 Load Balancer & Reverse Proxy Server: NGINX
+  - 🐍 WSGI Server: Gunicorn
+  - 🔙 Backend Application: Flask (Python)
+  - 🖥️ Frontend Application: Vue.js
+  - 📧 SMTP Service: Gmail
+  - 📦 Caching: Redis
+  - 🔄 Backend Tasks: Celery
+  - 🔑 Authentication Token: JWT
+  - 📖 API Documentation: Postman
+  
+  #### Project Features
+  
+  <!-- List the features of your project here -->
 
 #### Email Notifications
 
