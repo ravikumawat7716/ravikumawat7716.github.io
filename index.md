@@ -207,6 +207,7 @@ New Delhi, Delhi, India
 ## Honors-Awards
   - L&T Merit Cum Means Scholarship
   - TATA Capital Pankh Scholarship
+  - Ram Shriram Scholarship 
 
 ## PARTICIPATION IN TECHNICAL EVENTS
 - Participated in a Hackathon organized by iNeuron at JECRC University, Jaipur. Built a Blog Application Project.
