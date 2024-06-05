@@ -28,7 +28,7 @@ I pride myself in being a Passionate Python Developer and a Web Developer. I'm a
 <tr>
 <td>B.S. in Data Science &amp; Applications</td>
 <td>IIT Madras, Chennai</td>
-<td>7.3</td>
+<td>7.8</td>
 <td>2021-2025</td>
 </tr>
 <tr>
