@@ -3,153 +3,374 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ravi Kumawat - Portfolio</title>
+  <title>Ravi Kumawat - AI/ML Engineer & IIT Madras Alumnus</title>
+  <meta name="description" content="Portfolio of Ravi Kumawat - AI/ML professional with BS in Data Science from IIT Madras. Founding Engineer at evolvue.ai specializing in Generative AI, Full-stack Development, and DevOps." />
+  <meta name="author" content="Ravi Kumawat" />
+  <meta name="keywords" content="AI, Machine Learning, Data Science, IIT Madras, Generative AI, Full-stack Development, DevOps, Portfolio" />
+  
+  <meta property="og:title" content="Ravi Kumawat - AI/ML Engineer & IIT Madras Alumnus" />
+  <meta property="og:description" content="Portfolio of Ravi Kumawat - AI/ML professional with BS in Data Science from IIT Madras. Founding Engineer at evolvue.ai." />
+  <meta property="og:type" content="website" />
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/lucide-static@latest/font/lucide.css" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: 'rgb(99 102 241)',
+            'primary-dark': 'rgb(79 70 229)',
+            accent: 'rgb(216 180 254)',
+            foreground: 'rgb(17 24 39)',
+            muted: 'rgb(107 114 128)',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    .gradient-primary {
+      background: linear-gradient(135deg, rgb(99 102 241), rgb(216 180 254));
+    }
+    
+    .gradient-hero {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(216, 180, 254, 0.05));
+    }
+    
+    .shadow-elegant {
+      box-shadow: 0 4px 20px -4px rgba(99, 102, 241, 0.15);
+    }
+    
+    .shadow-card {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+    
+    .transition-smooth {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .text-gradient {
+      background: linear-gradient(135deg, rgb(99 102 241), rgb(216 180 254));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .btn-hero {
+      background: linear-gradient(135deg, rgb(99 102 241), rgb(216 180 254));
+      color: white;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 20px -4px rgba(99, 102, 241, 0.15);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-block;
+      text-decoration: none;
+    }
+    
+    .btn-hero:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+    
+    .btn-outline {
+      border: 1px solid rgb(229 231 235);
+      background: white;
+      color: rgb(17 24 39);
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-block;
+      text-decoration: none;
+    }
+    
+    .btn-outline:hover {
+      background: rgb(243 244 246);
+    }
+    
+    .card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .card:hover {
+      box-shadow: 0 4px 20px -4px rgba(99, 102, 241, 0.15);
+    }
+    
+    .skill-tag {
+      padding: 0.5rem 1rem;
+      border: 1px solid rgb(229 231 235);
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      background: white;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-block;
+    }
+    
+    .skill-tag:hover {
+      background: rgb(243 244 246);
+    }
+  </style>
 </head>
 <body class="min-h-screen bg-gray-50 text-gray-900 antialiased">
 
   <!-- Header -->
-  <header class="border-b bg-white/60 backdrop-blur sticky top-0 z-40">
+  <header class="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-lg shadow-card">
     <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white font-semibold">RK</div>
+        <div class="w-12 h-12 rounded-full gradient-primary flex items-center justify-center text-white font-bold text-lg shadow-elegant">
+          RK
+        </div>
         <div>
-          <div class="text-lg font-semibold">Ravi Kumawat</div>
+          <div class="text-lg font-bold text-gray-900">Ravi Kumawat</div>
           <div class="text-xs text-gray-600">BS Data Science • AI/ML • Full-stack</div>
         </div>
       </div>
-      <nav class="flex items-center gap-4 text-sm">
-        <a href="#about" class="hover:underline">About</a>
-        <a href="#projects" class="hover:underline">Projects</a>
-        <a href="#skills" class="hover:underline">Skills</a>
-        <a href="#contact" class="hover:underline">Contact</a>
-        <a href="https://github.com/ravikumawat7716" aria-label="GitHub"><i class="lucide lucide-github"></i></a>
-        <a href="https://www.linkedin.com/in/ravikumawat7716/" aria-label="LinkedIn"><i class="lucide lucide-linkedin"></i></a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="#about" class="text-gray-900 hover:text-primary transition-smooth">About</a>
+        <a href="#projects" class="text-gray-900 hover:text-primary transition-smooth">Projects</a>
+        <a href="#skills" class="text-gray-900 hover:text-primary transition-smooth">Skills</a>
+        <a href="#contact" class="text-gray-900 hover:text-primary transition-smooth">Contact</a>
+        <a href="https://github.com/ravikumawat7716" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-gray-900 hover:text-primary transition-smooth">
+          <i class="lucide lucide-github w-5 h-5"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/ravikumawat7716/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-gray-900 hover:text-primary transition-smooth">
+          <i class="lucide lucide-linkedin w-5 h-5"></i>
+        </a>
       </nav>
     </div>
   </header>
 
   <main class="max-w-5xl mx-auto px-6 py-12">
-    <!-- Hero -->
-    <section>
-      <h1 class="text-4xl sm:text-5xl font-bold leading-tight">Hello — I’m Ravi Kumawat.</h1>
-      <p class="mt-4 text-gray-700">
+    <!-- Hero Section -->
+    <section class="py-12 gradient-hero rounded-3xl px-8 md:px-12 mb-16">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
+        Hello — I'm <span class="text-gradient">Ravi Kumawat</span>.
+      </h1>
+      <p class="mt-6 text-lg text-gray-700 max-w-2xl">
         AI/ML professional with a BS in Data Science and Applications from IIT Madras.
         Currently Software Engineer (Founding Engineer, evolvue.ai) at KRISHAI Technologies,
         focusing on Generative AI, backend, and DevOps.
       </p>
 
-      <div class="mt-6 flex gap-3">
-        <a href="#projects" class="px-4 py-2 bg-indigo-600 text-white rounded-md shadow-sm hover:opacity-95">See my work</a>
-        <a href="#contact" class="px-4 py-2 border rounded-md text-gray-800">Contact me</a>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="#projects" class="btn-hero">See my work</a>
+        <a href="#contact" class="btn-outline">Contact me</a>
       </div>
 
-      <div class="mt-6 text-sm text-gray-600">
-        <div><strong>Location:</strong> Jaipur, Rajasthan</div>
-        <div><strong>Education:</strong> BS (4-year) Data Science & Applications, IIT Madras</div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="mt-16 bg-white p-6 rounded-2xl shadow-sm">
-      <h2 class="text-2xl font-semibold">About</h2>
-      <p class="mt-3 text-gray-700">
-        I am an AI/ML professional with experience in Deep Learning, Generative AI, and Full-stack development. 
-        I recently completed my 4-year BS degree from IIT Madras, and I currently work as a Founding Engineer at evolvue.ai, 
-        building next-generation AI products. My past experiences include research in medical imaging at IIT Ropar 
-        and mentoring projects as a Teaching Assistant at IIT Madras.
-      </p>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="mt-10">
-      <h2 class="text-2xl font-semibold">Selected Projects</h2>
-      <div class="mt-6 grid md:grid-cols-2 gap-6">
-
-        <article class="bg-white p-5 rounded-xl shadow-sm">
-          <h3 class="text-lg font-medium">Generative AI Products — evolvue.ai</h3>
-          <p class="mt-2 text-gray-600 text-sm">Founding Engineer at KRISHAI Technologies, building GenAI products under Krish Naik. Backend + DevOps.</p>
-          <a href="https://evolvue.ai/about" class="text-indigo-600 hover:underline text-sm">View →</a>
-        </article>
-
-        <article class="bg-white p-5 rounded-xl shadow-sm">
-          <h3 class="text-lg font-medium">Deep Learning for Medical Imaging</h3>
-          <p class="mt-2 text-gray-600 text-sm">Research intern at IIT Ropar: applied CNNs for segmentation and classification; collaborated with PGIMER Chandigarh.</p>
-        </article>
-
-        <article class="bg-white p-5 rounded-xl shadow-sm">
-          <h3 class="text-lg font-medium">Show Ticket Booking Platform</h3>
-          <p class="mt-2 text-gray-600 text-sm">Full-stack app using Flask, Vue.js, Redis, AWS EC2 deployment with CI/CD integration.</p>
-          <a href="https://github.com/ravikumawat7716/Show-Ticketing" class="text-indigo-600 hover:underline text-sm">View →</a>
-        </article>
-
-        <article class="bg-white p-5 rounded-xl shadow-sm">
-          <h3 class="text-lg font-medium">GenAI Powered LMS</h3>
-          <p class="mt-2 text-gray-600 text-sm">Designed an LMS integrating Llama 3.1 with AI chatbot support for personalized learning.</p>
-          <a href="https://github.com/ravikumawat7716/soft-engg-project-may-2024-se-may-23" class="text-indigo-600 hover:underline text-sm">View →</a>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="mt-10 bg-white p-6 rounded-2xl shadow-sm">
-      <h2 class="text-2xl font-semibold">Skills</h2>
-      <div class="mt-4 flex flex-wrap gap-3">
-        <div class="px-3 py-1 border rounded-md text-sm">Generative AI</div>
-        <div class="px-3 py-1 border rounded-md text-sm">Deep Learning</div>
-        <div class="px-3 py-1 border rounded-md text-sm">Computer Vision</div>
-        <div class="px-3 py-1 border rounded-md text-sm">Full-stack Development</div>
-        <div class="px-3 py-1 border rounded-md text-sm">MLOps & Deployment</div>
-        <div class="px-3 py-1 border rounded-md text-sm">DevOps (AWS, GCP, Docker)</div>
-        <div class="px-3 py-1 border rounded-md text-sm">Python, JavaScript, SQL, Java, C</div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="mt-10">
-      <div class="bg-white p-6 rounded-2xl shadow-sm">
-        <h2 class="text-2xl font-semibold">Contact</h2>
-        <p class="mt-2 text-gray-600">I am available for collaborations, consulting, and opportunities. Feel free to reach out.</p>
-
-        <div class="mt-4 grid md:grid-cols-2 gap-6">
-          <div>
-            <h4 class="font-medium">Email</h4>
-            <a href="mailto:ravikumawat7716@gmail.com" class="inline-flex items-center gap-2 mt-2 text-indigo-600 hover:underline">
-              <i class="lucide lucide-mail"></i> ravikumawat7716@gmail.com
-            </a>
-            <h4 class="mt-4 font-medium">Profiles</h4>
-            <div class="mt-2 flex items-center gap-3">
-              <a href="https://github.com/ravikumawat7716" class="text-sm inline-flex items-center gap-2 hover:underline"><i class="lucide lucide-github"></i> GitHub</a>
-              <a href="https://www.linkedin.com/in/ravikumawat7716/" class="text-sm inline-flex items-center gap-2 hover:underline"><i class="lucide lucide-linkedin"></i> LinkedIn</a>
-            </div>
-          </div>
-          <form onsubmit="event.preventDefault(); window.location.href='mailto:ravikumawat7716@gmail.com';" class="space-y-3">
-            <div>
-              <label class="text-sm">Your name</label>
-              <input required class="mt-1 block w-full rounded-md border px-3 py-2"/>
-            </div>
-            <div>
-              <label class="text-sm">Email</label>
-              <input type="email" required class="mt-1 block w-full rounded-md border px-3 py-2"/>
-            </div>
-            <div>
-              <label class="text-sm">Message</label>
-              <textarea required rows="4" class="mt-1 block w-full rounded-md border px-3 py-2"></textarea>
-            </div>
-            <div>
-              <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-md">Send message</button>
-            </div>
-          </form>
+      <div class="mt-10 flex flex-col gap-2 text-sm text-gray-600">
+        <div class="flex items-center gap-2">
+          <span class="font-semibold text-gray-900">Location:</span> Jaipur, Rajasthan
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="font-semibold text-gray-900">Education:</span> BS (4-year) Data Science & Applications, IIT Madras
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="mt-12 py-8 text-center text-sm text-gray-500">
-      © <script>document.write(new Date().getFullYear())</script> Ravi Kumawat
-    </footer>
+    <!-- About Section -->
+    <section id="about" class="mb-16 scroll-mt-24">
+      <div class="card">
+        <h2 class="text-3xl font-bold mb-4 text-gray-900">About</h2>
+        <p class="text-gray-700 leading-relaxed">
+          I am an AI/ML professional with experience in Deep Learning, Generative AI, and Full-stack development. 
+          I recently completed my 4-year BS degree from IIT Madras, and I currently work as a Founding Engineer at evolvue.ai, 
+          building next-generation AI products. My past experiences include research in medical imaging at IIT Ropar 
+          and mentoring projects as a Teaching Assistant at IIT Madras.
+        </p>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="mb-16 scroll-mt-24">
+      <h2 class="text-3xl font-bold mb-8 text-gray-900">Selected Projects</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="card">
+          <h3 class="text-xl font-semibold mb-2 text-gray-900">Generative AI Products — evolvue.ai</h3>
+          <p class="text-gray-600 text-sm mb-4">
+            Founding Engineer at KRISHAI Technologies, building GenAI products under Krish Naik. Backend + DevOps.
+          </p>
+          <a 
+            href="https://evolvue.ai/about" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-primary hover:opacity-80 transition-smooth font-medium"
+          >
+            View Project <i class="lucide lucide-external-link w-4 h-4"></i>
+          </a>
+        </div>
+
+        <div class="card">
+          <h3 class="text-xl font-semibold mb-2 text-gray-900">Deep Learning for Medical Imaging</h3>
+          <p class="text-gray-600 text-sm">
+            Research intern at IIT Ropar: applied CNNs for segmentation and classification; collaborated with PGIMER Chandigarh.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="text-xl font-semibold mb-2 text-gray-900">Show Ticket Booking Platform</h3>
+          <p class="text-gray-600 text-sm mb-4">
+            Full-stack app using Flask, Vue.js, Redis, AWS EC2 deployment with CI/CD integration.
+          </p>
+          <a 
+            href="https://github.com/ravikumawat7716/Show-Ticketing" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-primary hover:opacity-80 transition-smooth font-medium"
+          >
+            View on GitHub <i class="lucide lucide-external-link w-4 h-4"></i>
+          </a>
+        </div>
+
+        <div class="card">
+          <h3 class="text-xl font-semibold mb-2 text-gray-900">GenAI Powered LMS</h3>
+          <p class="text-gray-600 text-sm mb-4">
+            Designed an LMS integrating Llama 3.1 with AI chatbot support for personalized learning.
+          </p>
+          <a 
+            href="https://github.com/ravikumawat7716/soft-engg-project-may-2024-se-may-23" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-primary hover:opacity-80 transition-smooth font-medium"
+          >
+            View on GitHub <i class="lucide lucide-external-link w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="mb-16 scroll-mt-24">
+      <div class="card">
+        <h2 class="text-3xl font-bold mb-4 text-gray-900">Skills</h2>
+        <div class="flex flex-wrap gap-3">
+          <span class="skill-tag">Generative AI</span>
+          <span class="skill-tag">Deep Learning</span>
+          <span class="skill-tag">Computer Vision</span>
+          <span class="skill-tag">Full-stack Development</span>
+          <span class="skill-tag">MLOps & Deployment</span>
+          <span class="skill-tag">DevOps (AWS, GCP, Docker)</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">C</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="mb-16 scroll-mt-24">
+      <div class="card">
+        <h2 class="text-3xl font-bold mb-2 text-gray-900">Contact</h2>
+        <p class="text-gray-600 mb-6">
+          I am available for collaborations, consulting, and opportunities. Feel free to reach out.
+        </p>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h4 class="font-semibold text-gray-900 mb-3">Email</h4>
+            <a 
+              href="mailto:ravikumawat7716@gmail.com" 
+              class="inline-flex items-center gap-2 text-primary hover:opacity-80 transition-smooth"
+            >
+              <i class="lucide lucide-mail w-5 h-5"></i>
+              ravikumawat7716@gmail.com
+            </a>
+            
+            <h4 class="font-semibold text-gray-900 mt-6 mb-3">Profiles</h4>
+            <div class="flex items-center gap-4">
+              <a 
+                href="https://github.com/ravikumawat7716" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-gray-900 hover:text-primary transition-smooth"
+              >
+                <i class="lucide lucide-github w-5 h-5"></i>
+                <span>GitHub</span>
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/ravikumawat7716/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-gray-900 hover:text-primary transition-smooth"
+              >
+                <i class="lucide lucide-linkedin w-5 h-5"></i>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
+          
+          <form id="contactForm" class="space-y-4">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-900 mb-1">Your name</label>
+              <input 
+                type="text"
+                id="name" 
+                name="name"
+                required 
+                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-900 mb-1">Email</label>
+              <input 
+                type="email"
+                id="email" 
+                name="email"
+                required 
+                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-900 mb-1">Message</label>
+              <textarea 
+                id="message" 
+                name="message"
+                required 
+                rows="4"
+                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn-hero w-full text-center">
+              Send message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- Footer -->
+  <footer class="border-t py-8 text-center text-sm text-gray-600">
+    <p>© <span id="year"></span> Ravi Kumawat </p>
+  </footer>
+
+  <script>
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Contact form handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      
+      const mailtoLink = `mailto:ravikumawat7716@gmail.com?subject=Portfolio Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(message)}%0D%0A%0D%0AFrom: ${encodeURIComponent(email)}`;
+      window.location.href = mailtoLink;
+    });
+  </script>
 </body>
 </html>
