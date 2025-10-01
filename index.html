@@ -1,316 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ravi Kumawat - Portfolio</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ravi Kumawat - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/lucide-static@latest/font/lucide.css" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-900 antialiased">
 
-      body {
-        line-height: 1.6;
-      }
-
-      .header {
-        background: linear-gradient(to right, #1e3a8a, #1e40af);
-        color: white;
-        padding: 4rem 2rem;
-        text-align: center;
-      }
-
-      .nav-links {
-        margin-top: 1rem;
-        padding: 1rem;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
-        display: inline-block;
-      }
-
-      .nav-links a {
-        color: white;
-        margin: 0 15px;
-        text-decoration: none;
-        padding: 5px 15px;
-        border-radius: 4px;
-        transition: background-color 0.3s;
-      }
-
-      .nav-links a:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-      }
-
-      .social-links {
-        margin-top: 1rem;
-      }
-
-      .social-links a {
-        color: white;
-        margin: 0 10px;
-        text-decoration: none;
-      }
-
-      .section {
-        padding: 4rem 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .section:nth-child(even) {
-        background-color: #f8fafc;
-      }
-
-      .section-title {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-        color: #1e3a8a;
-      }
-
-      .card {
-        background: white;
-        border-radius: 8px;
-        padding: 1.5rem;
-        margin-bottom: 1.5rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-      }
-
-      .card:hover {
-        transform: translateY(-5px);
-      }
-
-      .experience-title {
-        color: #1e3a8a;
-        font-size: 1.25rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .experience-period {
-        color: #3b82f6;
-        margin-bottom: 1rem;
-      }
-
-      .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-      }
-
-      .skill-tag {
-        display: inline-block;
-        background: #dbeafe;
-        color: #1e40af;
-        padding: 0.25rem 0.75rem;
-        border-radius: 9999px;
-        margin: 0.25rem;
-        font-size: 0.875rem;
-        transition: background-color 0.3s;
-      }
-
-      .skill-tag:hover {
-        background: #bfdbfe;
-      }
-
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
-      }
-
-      .footer {
-        text-align: center;
-        padding: 1.5rem;
-        background: #1e3a8a;
-        color: white;
-      }
-
-      ul {
-        list-style-position: inside;
-        margin-left: 1rem;
-      }
-
-      .blog-link {
-        display: inline-block;
-        background: #3b82f6;
-        color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-        text-decoration: none;
-        transition: background-color 0.3s;
-      }
-
-      .blog-link:hover {
-        background: #2563eb;
-      }
-    </style>
-  </head>
-  <body>
-    <header class="header">
-      <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem">Ravi Kumawat</h1>
-      <p style="font-size: 1.25rem; margin-bottom: 1rem">
-        AI/ML Consultant | Full-Stack Developer | Research Intern
-      </p>
-      <p>
-        Jaipur, Rajasthan | 4th Year, BS Degree in Data Science and
-        Applications, IIT Madras
-      </p>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="/blogs/index.html">Technical Blog</a>
+  <!-- Header -->
+  <header class="border-b bg-white/60 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white font-semibold">RK</div>
+        <div>
+          <div class="text-lg font-semibold">Ravi Kumawat</div>
+          <div class="text-xs text-gray-600">BS Data Science • AI/ML • Full-stack</div>
+        </div>
       </div>
-      <div class="social-links">
-        <a href="https://linkedin.com/in/ravikumawat7716" target="_blank"
-          >LinkedIn</a
-        >
-        <a href="https://github.com/ravikumawat7716" target="_blank">GitHub</a>
-        <a href="https://twitter.com/ravikumawat7716" target="_blank"
-          >Twitter</a
-        >
-      </div>
-    </header>
+      <nav class="flex items-center gap-4 text-sm">
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#projects" class="hover:underline">Projects</a>
+        <a href="#skills" class="hover:underline">Skills</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+        <a href="https://github.com/ravikumawat7716" aria-label="GitHub"><i class="lucide lucide-github"></i></a>
+        <a href="https://www.linkedin.com/in/ravikumawat7716/" aria-label="LinkedIn"><i class="lucide lucide-linkedin"></i></a>
+      </nav>
+    </div>
+  </header>
 
-    <section class="section">
-      <h2 class="section-title">About Me</h2>
-      <div class="card">
-        <p>
-          I am a passionate AI/ML consultant and full-stack developer with
-          expertise in machine learning, deep learning, computer vision, and
-          software development. With a strong foundation in data science, I
-          bring innovative solutions to real-world problems, bridging the gap
-          between academia and industry. My journey is defined by impactful
-          projects, leadership roles, and a drive to explore cutting-edge
-          technology for societal benefit.
+  <main class="max-w-5xl mx-auto px-6 py-12">
+    <!-- Hero -->
+    <section class="grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h1 class="text-4xl sm:text-5xl font-bold leading-tight">Hello — I’m Ravi Kumawat.</h1>
+        <p class="mt-4 text-gray-700">
+          AI/ML professional with a BS in Data Science and Applications from IIT Madras.
+          Currently Software Engineer (Founding Engineer, evolvue.ai) at KRISHAI Technologies,
+          focusing on Generative AI, backend, and DevOps.
         </p>
+
+        <div class="mt-6 flex gap-3">
+          <a href="#projects" class="px-4 py-2 bg-indigo-600 text-white rounded-md shadow-sm hover:opacity-95">See my work</a>
+          <a href="#contact" class="px-4 py-2 border rounded-md text-gray-800">Contact me</a>
+        </div>
+
+        <div class="mt-6 text-sm text-gray-600">
+          <div><strong>Location:</strong> Jaipur, Rajasthan</div>
+          <div><strong>Education:</strong> BS (4-year) Data Science & Applications, IIT Madras</div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <div class="w-64 h-64 rounded-2xl bg-gradient-to-tr from-gray-100 to-white shadow-lg flex items-center justify-center overflow-hidden">
+          <img alt="Ravi Kumawat" src="profile.jpg" class="object-cover w-full h-full" />
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <h2 class="section-title">Professional Experience</h2>
-      <div class="card">
-        <h3 class="experience-title">Research Intern – IIT Ropar</h3>
-        <p class="experience-period">Jan 2024 – Present</p>
-        <ul>
-          <li>
-            Working under Dr. Sukrit Gupta to leverage deep learning for
-            computer vision in medical imaging.
-          </li>
-          <li>
-            Contributed to projects addressing real-world challenges while
-            advancing academic knowledge.
-          </li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3 class="experience-title">
-          Teaching Assistant and Project Mentor – IIT Madras
-        </h3>
-        <p class="experience-period">Aug 2023 – Present</p>
-        <ul>
-          <li>
-            Mentored students in integrating AI and full-stack development for
-            practical projects.
-          </li>
-          <li>
-            Enhanced the curriculum with industry-focused solutions, bridging
-            theoretical concepts and real-world applications.
-          </li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3 class="experience-title">Startup Co-Founder – Decarbz</h3>
-        <p class="experience-period">KHOJ Startup Yatra, BITS Pilani, 2023</p>
-        <ul>
-          <li>Secured a place among the top 5 teams.</li>
-          <li>
-            Designed solutions to promote sustainable practices with data-driven
-            approaches.
-          </li>
-        </ul>
-      </div>
+    <!-- About -->
+    <section id="about" class="mt-16 bg-white p-6 rounded-2xl shadow-sm">
+      <h2 class="text-2xl font-semibold">About</h2>
+      <p class="mt-3 text-gray-700">
+        I am an AI/ML professional with experience in Deep Learning, Generative AI, and Full-stack development. 
+        I recently completed my 4-year BS degree from IIT Madras, and I currently work as a Founding Engineer at evolvue.ai, 
+        building next-generation AI products. My past experiences include research in medical imaging at IIT Ropar 
+        and mentoring projects as a Teaching Assistant at IIT Madras.
+      </p>
     </section>
 
-    <section class="section">
-      <h2 class="section-title">Technical Skills</h2>
-      <div class="skills-grid">
-        <div class="card">
-          <h3 class="experience-title">Programming Languages</h3>
-          <div>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">SQL</span>
-            <span class="skill-tag">HTML/CSS</span>
+    <!-- Projects -->
+    <section id="projects" class="mt-10">
+      <h2 class="text-2xl font-semibold">Selected Projects</h2>
+      <div class="mt-6 grid md:grid-cols-2 gap-6">
+
+        <!-- Project Card -->
+        <article class="bg-white p-5 rounded-xl shadow-sm">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-lg font-medium">Generative AI Products — evolvue.ai</h3>
+              <p class="mt-2 text-gray-600 text-sm">Founding Engineer at KRISHAI Technologies, building GenAI products under Krish Naik. Backend + DevOps.</p>
+            </div>
+            <div><a href="https://evolvue.ai/about" class="text-indigo-600 hover:underline text-sm">View →</a></div>
           </div>
-        </div>
-        <div class="card">
-          <h3 class="experience-title">Frameworks and Tools</h3>
-          <div>
-            <span class="skill-tag">Flask</span>
-            <span class="skill-tag">Django</span>
-            <span class="skill-tag">Vue.js</span>
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">TensorFlow</span>
-            <span class="skill-tag">PyTorch</span>
-            <span class="skill-tag">MongoDB</span>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="text-xs border px-2 py-1 rounded-full text-gray-600">GenAI</span>
+            <span class="text-xs border px-2 py-1 rounded-full text-gray-600">Backend</span>
+            <span class="text-xs border px-2 py-1 rounded-full text-gray-600">DevOps</span>
           </div>
+        </article>
+
+        <article class="bg-white p-5 rounded-xl shadow-sm">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-lg font-medium">Deep Learning for Medical Imaging</h3>
+              <p class="mt-2 text-gray-600 text-sm">Research intern at IIT Ropar: applied CNNs for segmentation and classification; collaborated with PGIMER Chandigarh.</p>
+            </div>
+          </div>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="text-xs border px-2 py-1 rounded-full text-gray-600">PyTorch</span>
+            <span class="text-xs border px-2 py-1 rounded-full text-gray-600">nnUNet</span>
+            <span class="text-xs border px-2 py-1 rounded-full text-gray-600">Medical Imaging</span>
+          </div>
+        </article>
+
+        <article class="bg-white p-5 rounded-xl shadow-sm">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-lg font-medium">Show Ticket Booking Platform</h3>
+              <p class="mt-2 text-gray-600 text-sm">Full-stack app using Flask, Vue.js, Redis, AWS EC2 deployment with CI/CD integration.</p>
+            </div>
+            <div><a href="https://github.com/ravikumawat7716/Show-Ticketing" class="text-indigo-600 hover:underline text-sm">View →</a></div>
+          </div>
+        </article>
+
+        <article class="bg-white p-5 rounded-xl shadow-sm">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-lg font-medium">GenAI Powered LMS</h3>
+              <p class="mt-2 text-gray-600 text-sm">Designed an LMS integrating Llama 3.1 with AI chatbot support for personalized learning.</p>
+            </div>
+            <div><a href="https://github.com/ravikumawat7716/soft-engg-project-may-2024-se-may-23" class="text-indigo-600 hover:underline text-sm">View →</a></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="mt-10 bg-white p-6 rounded-2xl shadow-sm">
+      <h2 class="text-2xl font-semibold">Skills</h2>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <div class="px-3 py-1 border rounded-md text-sm">Generative AI</div>
+        <div class="px-3 py-1 border rounded-md text-sm">Deep Learning</div>
+        <div class="px-3 py-1 border rounded-md text-sm">Computer Vision</div>
+        <div class="px-3 py-1 border rounded-md text-sm">Full-stack Development</div>
+        <div class="px-3 py-1 border rounded-md text-sm">MLOps & Deployment</div>
+        <div class="px-3 py-1 border rounded-md text-sm">DevOps (AWS, GCP, Docker)</div>
+        <div class="px-3 py-1 border rounded-md text-sm">Python, JavaScript, SQL, Java, C</div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="mt-10">
+      <div class="bg-white p-6 rounded-2xl shadow-sm">
+        <h2 class="text-2xl font-semibold">Contact</h2>
+        <p class="mt-2 text-gray-600">I am available for collaborations, consulting, and opportunities. Feel free to reach out.</p>
+
+        <div class="mt-4 grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="font-medium">Email</h4>
+            <a href="mailto:ravikumawat7716@gmail.com" class="inline-flex items-center gap-2 mt-2 text-indigo-600 hover:underline">
+              <i class="lucide lucide-mail"></i> ravikumawat7716@gmail.com
+            </a>
+            <h4 class="mt-4 font-medium">Profiles</h4>
+            <div class="mt-2 flex items-center gap-3">
+              <a href="https://github.com/ravikumawat7716" class="text-sm inline-flex items-center gap-2 hover:underline"><i class="lucide lucide-github"></i> GitHub</a>
+              <a href="https://www.linkedin.com/in/ravikumawat7716/" class="text-sm inline-flex items-center gap-2 hover:underline"><i class="lucide lucide-linkedin"></i> LinkedIn</a>
+            </div>
+          </div>
+          <!-- <form onsubmit="event.preventDefault(); window.location.href='mailto:ravikumawat7716@gmail.com';" class="space-y-3">
+            <div>
+              <label class="text-sm">Your name</label>
+              <input required class="mt-1 block w-full rounded-md border px-3 py-2"/>
+            </div>
+            <div>
+              <label class="text-sm">Email</label>
+              <input type="email" required class="mt-1 block w-full rounded-md border px-3 py-2"/>
+            </div>
+            <div>
+              <label class="text-sm">Message</label>
+              <textarea required rows="4" class="mt-1 block w-full rounded-md border px-3 py-2"></textarea>
+            </div>
+            <div>
+              <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-md">Send message</button>
+            </div>
+          </form> -->
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <h2 class="section-title">Projects</h2>
-      <div class="projects-grid">
-        <div class="card">
-          <h3 class="experience-title">AI-Powered Medical Imaging</h3>
-          <ul>
-            <li>
-              Developed deep learning models for advanced diagnostic imaging at
-              IIT Ropar.
-            </li>
-            <li>
-              Demonstrated real-world applications of computer vision in
-              healthcare.
-            </li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3 class="experience-title">Student Activities Website</h3>
-          <ul>
-            <li>
-              Led the development of a responsive, interactive platform for
-              Sundarbans House.
-            </li>
-            <li>Streamlined student activities and communication.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3 class="experience-title">Dynamic Timetable System</h3>
-          <ul>
-            <li>
-              Created a JavaScript-based website that integrates real-time date,
-              day, and time functionalities.
-            </li>
-            <li>Implemented dynamic schedule display features.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3 class="experience-title">StudyBuddy</h3>
-          <ul>
-            <li>
-              Built a location-based Django application to connect users based
-              on proximity.
-            </li>
-            <li>Featuring real-time updates and seamless UI integration.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <p>Made with ❤️ by Ravi</p>
+    <!-- Footer -->
+    <footer class="mt-12 py-8 text-center text-sm text-gray-500">
+      © <script>document.write(new Date().getFullYear())</script> Ravi Kumawat
     </footer>
-  </body>
+  </main>
+</body>
 </html>
