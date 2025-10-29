@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ravi Kumawat's Blogs">
+    <title>Blogs | Ravi Kumawat</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Ravi Kumawat</h1>
+        <p style="font-size: 1.25rem; margin-bottom: 1rem;">AI/ML Consultant | Full-Stack Developer | Research Intern</p>
+        <p>Jaipur, Rajasthan | 3rd Year, BS Degree in Data Science and Applications, IIT Madras</p>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/ravikumawat7716" target="_blank">LinkedIn</a>
+            <a href="https://github.com/ravikumawat7716" target="_blank">GitHub</a>
+            <a href="https://twitter.com/ravikumawat7716" target="_blank">Twitter</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="blogs">
+            <h2>My Blogs</h2>
+            <ul>
+                <li><a href="./Application_Deployement_1">Deploying a Flask Application on AWS EC2 with Gunicorn and Nginx</a></li>
+                <li><a href="./Application_Deployement_2">DNS Setup, SSL, and HTTP Configuration for Flask Application on AWS EC2</a></li>
+                <li><a href="./International_Internship_Opportunities">International Internship Opportunities Information</a></li>
+                <!-- Add more blog links here -->
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        Made with ❤️ by Ravi Kumawat
+    </footer>
+</body>
+</html>

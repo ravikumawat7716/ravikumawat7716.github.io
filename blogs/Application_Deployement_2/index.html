@@ -3,173 +3,381 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DNS Setup, SSL, and HTTP Configuration - Ravi Kumawat</title>
+    <title>DNS Configuration, SSL, and HTTP Setup Guide | Ravi Kumawat</title>
+    <meta name="description" content="Comprehensive guide to DNS configuration, SSL certificates, and HTTP/HTTPS setup for web applications">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #6366F1;
+            --secondary: #8B5CF6;
+            --accent: #A78BFA;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+            --gray: #6B7280;
+            --light-gray: #E5E7EB;
+            --card-bg: #FFFFFF;
+            --text-primary: #111827;
+            --text-secondary: #4B5563;
         }
 
         body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
             line-height: 1.6;
-            background-color: #f8fafc;
+            color: var(--text-primary);
+            background: var(--light);
         }
 
-        .header {
-            background: linear-gradient(to right, #1e3a8a, #1e40af);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border-bottom: 1px solid var(--light-gray);
         }
 
-        .nav-links {
-            margin-top: 1rem;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            display: inline-block;
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .nav-links a {
-            color: white;
-            margin: 0 15px;
+        nav .logo {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
             text-decoration: none;
-            padding: 5px 15px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
         }
 
-        .nav-links a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
         }
 
-        .content {
-            max-width: 800px;
-            margin: 2rem auto;
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
             padding: 0 2rem;
         }
 
-        .blog-post {
+        /* Article Header */
+        .article-header {
+            background: linear-gradient(135deg, #F0F4FF 0%, #E8EEFF 50%, #F5F3FF 100%);
+            padding: 4rem 0 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: #F0F4FF;
+            color: var(--primary);
+            padding: 0.35rem 0.85rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Article Content */
+        .article-content {
             background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid var(--light-gray);
+            margin-bottom: 3rem;
         }
 
-        .blog-title {
-            color: #1e3a8a;
-            font-size: 2rem;
-            margin-bottom: 1rem;
+        .article-content h2 {
+            color: var(--text-primary);
+            font-size: 1.75rem;
+            margin: 2.5rem 0 1rem;
+            font-weight: 600;
         }
 
-        .blog-meta {
-            color: #64748b;
-            font-size: 0.875rem;
-            margin-bottom: 2rem;
+        .article-content h2:first-child {
+            margin-top: 0;
         }
 
-        .blog-content h2 {
-            color: #1e3a8a;
-            font-size: 1.5rem;
-            margin: 2rem 0 1rem;
+        .article-content h3 {
+            color: var(--text-primary);
+            font-size: 1.35rem;
+            margin: 2rem 0 0.75rem;
+            font-weight: 600;
         }
 
-        .blog-content p {
-            margin-bottom: 1rem;
-            color: #475569;
+        .article-content p {
+            margin-bottom: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .article-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
         }
 
         pre {
-            background: #f1f5f9;
-            padding: 1rem;
-            border-radius: 4px;
+            background: #F1F5F9;
+            padding: 1.25rem;
+            border-radius: 8px;
             overflow-x: auto;
-            margin: 1rem 0;
+            margin: 1.5rem 0;
+            border: 1px solid var(--light-gray);
         }
 
         code {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--text-primary);
         }
 
-        ul {
-            margin-left: 2rem;
-            margin-bottom: 1rem;
-            color: #475569;
+        .info-box {
+            background: #F0F9FF;
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
         }
 
-        .footer {
-            text-align: center;
-            padding: 1.5rem;
-            background: #1e3a8a;
+        .info-box p {
+            margin: 0;
+        }
+
+        /* Back Button */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            background: #F0F4FF;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-bottom: 2rem;
+        }
+
+        .back-button:hover {
+            background: var(--primary);
             color: white;
-            margin-top: 2rem;
+            transform: translateX(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: #F9FAFB;
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid var(--light-gray);
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .article-header h1 {
+                font-size: 2rem;
+            }
+
+            .article-content {
+                padding: 1.5rem;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Technical Blog</h1>
-        <div class="nav-links">
-            <a href="../../index.html">Home</a>
-            <a href="../index.html">Blog</a>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../../index.html" class="logo">Ravi Kumawat</a>
+            <ul>
+                <li><a href="../../index.html#home">Home</a></li>
+                <li><a href="../../index.html#about">About</a></li>
+                <li><a href="../../index.html#happenings">Happenings</a></li>
+                <li><a href="../../index.html#blogs">Blogs</a></li>
+                <li><a href="../../index.html#projects">Projects</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
-    <main class="content">
-        <article class="blog-post">
-            <h1 class="blog-title">DNS Setup, SSL, and HTTP Configuration for Flask Application</h1>
-            <div class="blog-meta">
-                <span>Published on March 16, 2024</span>
-                <span> • </span>
-                <span>8 min read</span>
+    <!-- Article Header -->
+    <section class="article-header">
+        <div class="container">
+            <h1>DNS Configuration, SSL Certificates, and HTTP Setup</h1>
+            <div class="article-meta">
+                <span>📅 March 20, 2024</span>
+                <span>⏱️ 12 min read</span>
+                <span>✍️ Ravi Kumawat</span>
+            </div>
+            <div class="tags">
+                <span class="tag">DNS</span>
+                <span class="tag">SSL/TLS</span>
+                <span class="tag">Let's Encrypt</span>
+                <span class="tag">HTTPS</span>
+                <span class="tag">Security</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <div class="container">
+        <a href="../" class="back-button">← Back to Blogs</a>
+
+        <article class="article-content">
+            <p>Setting up a secure, production-ready web application requires proper DNS configuration and SSL certificates. This comprehensive guide walks through the essential steps to configure DNS, obtain SSL certificates, and set up HTTPS for your web application.</p>
+
+            <h2>Understanding DNS and HTTPS</h2>
+            <p>Before diving into the configuration, let's understand the key components:</p>
+            <ul>
+                <li><strong>DNS (Domain Name System):</strong> Translates human-readable domain names to IP addresses</li>
+                <li><strong>SSL/TLS Certificates:</strong> Encrypt data transmission between client and server</li>
+                <li><strong>HTTPS:</strong> HTTP protocol over SSL/TLS, providing secure communication</li>
+            </ul>
+
+            <h2>1. Domain Registration and DNS Setup</h2>
+            
+            <h3>Choosing a Domain Registrar</h3>
+            <p>Popular domain registrars include:</p>
+            <ul>
+                <li>GoDaddy</li>
+                <li>Namecheap</li>
+                <li>Google Domains</li>
+                <li>AWS Route 53</li>
+            </ul>
+
+            <h3>Configuring DNS Records</h3>
+            <p>After registering your domain, configure the following DNS records:</p>
+            <pre><code>A Record:
+Name: @
+Type: A
+Value: your-ec2-public-ip
+TTL: 3600
+
+CNAME Record:
+Name: www
+Type: CNAME
+Value: yourdomain.com
+TTL: 3600</code></pre>
+
+            <div class="info-box">
+                <p><strong>Note:</strong> DNS propagation can take up to 48 hours, though it typically completes within a few hours.</p>
             </div>
 
-            <div class="blog-content">
-                <p>After deploying your Flask application on AWS EC2, the next crucial step is setting up a custom domain, configuring DNS, and securing your application with SSL. This guide walks you through the entire process.</p>
-
-                <h2>Prerequisites</h2>
-                <ul>
-                    <li>A deployed Flask application on AWS EC2</li>
-                    <li>A registered domain name</li>
-                    <li>Access to your domain's DNS settings</li>
-                </ul>
-
-                <h2>1. DNS Configuration</h2>
-                <p>First, let's configure your domain's DNS settings:</p>
-                <ul>
-                    <li>Log in to your domain registrar's website</li>
-                    <li>Navigate to DNS management</li>
-                    <li>Add the following records:</li>
-                </ul>
-                <pre><code># A Record
-Type: A
-Host: @
-Value: your-ec2-ip-address
-TTL: 300
-
-# CNAME Record (for www subdomain)
-Type: CNAME
-Host: www
-Value: your-domain.com
-TTL: 300</code></pre>
-
-                <h2>2. Install Certbot for SSL</h2>
-                <pre><code>sudo apt update
+            <h2>2. Installing Certbot for SSL Certificates</h2>
+            <p>Certbot is a free, open-source tool for obtaining Let's Encrypt SSL certificates:</p>
+            <pre><code>sudo apt update
 sudo apt install certbot python3-certbot-nginx -y</code></pre>
 
-                <h2>3. Configure Nginx for Your Domain</h2>
-                <p>Update your Nginx configuration:</p>
-                <pre><code>sudo nano /etc/nginx/sites-available/myflaskapp</code></pre>
+            <h2>3. Obtaining SSL Certificates</h2>
+            
+            <h3>Using Certbot with Nginx</h3>
+            <p>Certbot can automatically configure SSL for Nginx:</p>
+            <pre><code>sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com</code></pre>
 
-                <p>Add the following configuration:</p>
-                <pre><code>server {
+            <p>Follow the prompts to:</p>
+            <ol>
+                <li>Enter your email address for renewal notifications</li>
+                <li>Agree to the Terms of Service</li>
+                <li>Choose whether to redirect HTTP to HTTPS (recommended)</li>
+            </ol>
+
+            <h3>Manual Configuration</h3>
+            <p>If you prefer manual configuration, obtain certificates only:</p>
+            <pre><code>sudo certbot certonly --nginx -d yourdomain.com -d www.yourdomain.com</code></pre>
+
+            <h2>4. Configuring Nginx for HTTPS</h2>
+            <p>Update your Nginx configuration to use SSL:</p>
+            <pre><code>server {
     listen 80;
-    server_name your-domain.com www.your-domain.com;
+    server_name yourdomain.com www.yourdomain.com;
+    return 301 https://$server_name$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name yourdomain.com www.yourdomain.com;
+
+    ssl_certificate /etc/letsencrypt/live/yourdomain.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/yourdomain.com/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers HIGH:!aNULL:!MD5;
+    ssl_prefer_server_ciphers on;
 
     location / {
-        proxy_pass http://unix:/home/ubuntu/your-repo/myflaskapp.sock;
+        proxy_pass http://unix:/home/ubuntu/your-app/app.sock;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -177,65 +385,90 @@ sudo apt install certbot python3-certbot-nginx -y</code></pre>
     }
 }</code></pre>
 
-                <h2>4. Obtain SSL Certificate</h2>
-                <pre><code>sudo certbot --nginx -d your-domain.com -d www.your-domain.com</code></pre>
+            <h2>5. Setting Up Automatic Certificate Renewal</h2>
+            <p>Let's Encrypt certificates expire after 90 days. Set up automatic renewal:</p>
+            <pre><code>sudo systemctl status certbot.timer</code></pre>
 
-                <p>Follow the prompts to:</p>
-                <ul>
-                    <li>Enter your email address</li>
-                    <li>Agree to terms of service</li>
-                    <li>Choose whether to redirect HTTP to HTTPS</li>
-                </ul>
+            <p>Test the renewal process:</p>
+            <pre><code>sudo certbot renew --dry-run</code></pre>
 
-                <h2>5. Verify SSL Configuration</h2>
-                <pre><code>sudo nginx -t
-sudo systemctl restart nginx</code></pre>
+            <h2>6. Security Best Practices</h2>
+            
+            <h3>Enable HSTS</h3>
+            <p>HTTP Strict Transport Security forces browsers to use HTTPS:</p>
+            <pre><code>add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;</code></pre>
 
-                <h2>6. Set Up Auto-Renewal</h2>
-                <p>Certbot creates a timer for automatic renewal. Verify it with:</p>
-                <pre><code>sudo systemctl status certbot.timer</code></pre>
+            <h3>Configure Security Headers</h3>
+            <p>Add these headers to your Nginx configuration:</p>
+            <pre><code>add_header X-Frame-Options "SAMEORIGIN" always;
+add_header X-Content-Type-Options "nosniff" always;
+add_header X-XSS-Protection "1; mode=block" always;
+add_header Referrer-Policy "no-referrer-when-downgrade" always;</code></pre>
 
-                <h2>Additional Security Measures</h2>
-                <ul>
-                    <li>Configure SSL parameters for better security</li>
-                    <li>Add security headers</li>
-                    <li>Enable HSTS</li>
-                </ul>
+            <h2>7. Verifying Your Setup</h2>
+            <p>After configuration, verify your setup:</p>
+            <ul>
+                <li><strong>SSL Labs Test:</strong> <a href="https://www.ssllabs.com/ssltest/">https://www.ssllabs.com/ssltest/</a></li>
+                <li><strong>Check HTTPS:</strong> Visit your domain and verify the padlock icon</li>
+                <li><strong>Test HTTP Redirect:</strong> Try accessing http://yourdomain.com</li>
+            </ul>
 
-                <p>Add these to your Nginx configuration:</p>
-                <pre><code>server {
-    # ... existing configuration ...
+            <h2>8. Troubleshooting Common Issues</h2>
+            
+            <h3>DNS Not Resolving</h3>
+            <ul>
+                <li>Wait for DNS propagation (up to 48 hours)</li>
+                <li>Verify DNS records with: <code>dig yourdomain.com</code></li>
+                <li>Check for typos in DNS configuration</li>
+            </ul>
 
-    # SSL configuration
-    ssl_protocols TLSv1.2 TLSv1.3;
-    ssl_prefer_server_ciphers on;
-    ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256;
-    ssl_session_timeout 1d;
-    ssl_session_cache shared:SSL:50m;
-    ssl_stapling on;
-    ssl_stapling_verify on;
+            <h3>Certificate Errors</h3>
+            <ul>
+                <li>Ensure domain points to correct IP</li>
+                <li>Check firewall allows port 80 (required for verification)</li>
+                <li>Verify Nginx syntax: <code>sudo nginx -t</code></li>
+            </ul>
 
-    # Security headers
-    add_header Strict-Transport-Security "max-age=31536000" always;
-    add_header X-Frame-Options DENY;
-    add_header X-Content-Type-Options nosniff;
-    add_header X-XSS-Protection "1; mode=block";
-}</code></pre>
+            <h3>Mixed Content Warnings</h3>
+            <ul>
+                <li>Ensure all resources (images, CSS, JS) use HTTPS</li>
+                <li>Update hardcoded HTTP URLs to HTTPS</li>
+                <li>Use protocol-relative URLs: <code>//example.com/resource</code></li>
+            </ul>
 
-                <h2>Conclusion</h2>
-                <p>Your Flask application should now be accessible via HTTPS at your custom domain. Remember to:</p>
-                <ul>
-                    <li>Monitor SSL certificate expiration</li>
-                    <li>Regularly update security configurations</li>
-                    <li>Keep Nginx and Certbot updated</li>
-                    <li>Implement proper logging for SSL/TLS issues</li>
-                </ul>
+            <h2>9. AWS Route 53 Integration</h2>
+            <p>If using AWS, Route 53 provides additional benefits:</p>
+            <ul>
+                <li>Fast DNS propagation</li>
+                <li>Integration with other AWS services</li>
+                <li>Health checks and failover routing</li>
+            </ul>
+
+            <pre><code>aws route53 create-hosted-zone --name yourdomain.com --caller-reference $(date +%s)
+aws route53 change-resource-record-sets --hosted-zone-id YOUR_ZONE_ID --change-batch file://dns-records.json</code></pre>
+
+            <h2>Conclusion</h2>
+            <p>You now have a secure, production-ready web application with:</p>
+            <ul>
+                <li>Properly configured DNS records</li>
+                <li>Free SSL/TLS certificates from Let's Encrypt</li>
+                <li>HTTPS enabled with automatic HTTP redirect</li>
+                <li>Security headers configured</li>
+                <li>Automatic certificate renewal</li>
+            </ul>
+
+            <div class="info-box">
+                <p><strong>Next Steps:</strong> Consider setting up monitoring, logging, and CDN integration for enhanced performance and security.</p>
             </div>
         </article>
-    </main>
+    </div>
 
-    <footer class="footer">
-        <p>Made with ❤️ by Bolt.new</p>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ravi Kumawat. All rights reserved.</p>
+            <p>Built with ❤️ and code</p>
+        </div>
     </footer>
 </body>
 </html>

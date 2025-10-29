@@ -3,163 +3,504 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>International Internship and Scholarship Opportunities | Ravi Kumawat</title>
-    <link rel="stylesheet" href="../../styles.css">
+    <title>International Internship Opportunities for Students | Ravi Kumawat</title>
+    <meta name="description" content="Comprehensive guide to international internship opportunities for students in tech, research, and innovation">
     <style>
-        /* Inline styles specific to the blog page */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366F1;
+            --secondary: #8B5CF6;
+            --accent: #A78BFA;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+            --gray: #6B7280;
+            --light-gray: #E5E7EB;
+            --card-bg: #FFFFFF;
+            --text-primary: #111827;
+            --text-secondary: #4B5563;
+        }
+
         body {
-            background-color: #f9f9f9; /* Light background for better contrast */
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--light);
         }
-        h2 {
-            color: #4caf50; /* Updated to the greenish color from the header */
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border-bottom: 1px solid var(--light-gray);
         }
-        p {
-            font-size: 14px;
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Article Header */
+        .article-header {
+            background: linear-gradient(135deg, #F0F4FF 0%, #E8EEFF 50%, #F5F3FF 100%);
+            padding: 4rem 0 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: #F0F4FF;
+            color: var(--primary);
+            padding: 0.35rem 0.85rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Article Content */
+        .article-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid var(--light-gray);
+            margin-bottom: 3rem;
+        }
+
+        .article-content h2 {
+            color: var(--text-primary);
+            font-size: 1.75rem;
+            margin: 2.5rem 0 1rem;
+            font-weight: 600;
+        }
+
+        .article-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .article-content h3 {
+            color: var(--text-primary);
+            font-size: 1.35rem;
+            margin: 2rem 0 0.75rem;
+            font-weight: 600;
+        }
+
+        .article-content p {
+            margin-bottom: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
             line-height: 1.6;
         }
-        a:hover {
-            text-decoration-color: #4caf50;
+
+        .article-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
         }
-        .content {
-            margin-top: 150px;
+
+        .opportunity-card {
+            background: #F9FAFB;
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
         }
-        .opportunity {
-            background-color: #fff; /* White background for each opportunity */
-            border-radius: 8px; /* Rounded corners */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
-            padding: 20px; /* Padding for content */
-            margin-bottom: 20px; /* Space between opportunities */
+
+        .opportunity-card h4 {
+            color: var(--text-primary);
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .opportunity-card .meta {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .info-box {
+            background: #F0F9FF;
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .info-box p {
+            margin: 0;
+        }
+
+        /* Back Button */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            background: #F0F4FF;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-bottom: 2rem;
+        }
+
+        .back-button:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateX(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: #F9FAFB;
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid var(--light-gray);
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .article-header h1 {
+                font-size: 2rem;
+            }
+
+            .article-content {
+                padding: 1.5rem;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-
-    <header>
-        <h1>Ravi Kumawat</h1>
-        <p>BS Student at IIT Madras | Research Intern at IIT Ropar </p>
-        <nav>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../../index.html" class="logo">Ravi Kumawat</a>
             <ul>
-                <li><a href="../../">Home</a></li>
-                <li><a href="../">Blogs</a></li>
-                <!-- <li><a href="../../#projects">Projects</a></li>
-                <li><a href="../../#skills">Skills</a></li> -->
-                <li><a href="../../#contact">Contact</a></li>
+                <li><a href="../../index.html#home">Home</a></li>
+                <li><a href="../../index.html#about">About</a></li>
+                <li><a href="../../index.html#happenings">Happenings</a></li>
+                <li><a href="../../index.html#blogs">Blogs</a></li>
+                <li><a href="../../index.html#projects">Projects</a></li>
             </ul>
-        </nav>
-    </header>
-
-    <main class="content">
-        <h1>International Internship and Scholarship Opportunities</h1>
-
-        <div class="opportunity">
-            <h2>Max Planck Summer Internship Program - MaxSIP</h2>
-            <p>Field: Biology, Chemistry, Bioinformatics, Biophysics, Neuroscience and related fields</p>
-            <p>Website: <a href="https://imprs-ls.opencampus.net/en/node/186672">https://imprs-ls.opencampus.net/en/node/186672</a></p>
         </div>
+    </nav>
 
-        <div class="opportunity">
-            <h2>DAAD Wise Internships</h2>
-            <p>Field: General internships (various fields)</p>
-            <p>Application Deadline: November 1</p>
-            <p>Website: <a href="https://daad.de/go/en/stipa50015295">https://daad.de/go/en/stipa50015295</a></p>
+    <!-- Article Header -->
+    <section class="article-header">
+        <div class="container">
+            <h1>International Internship Opportunities for Students</h1>
+            <div class="article-meta">
+                <span>📅 February 10, 2024</span>
+                <span>⏱️ 15 min read</span>
+                <span>✍️ Ravi Kumawat</span>
+            </div>
+            <div class="tags">
+                <span class="tag">Career</span>
+                <span class="tag">Internships</span>
+                <span class="tag">International</span>
+                <span class="tag">Research</span>
+                <span class="tag">Technology</span>
+            </div>
         </div>
+    </section>
 
-        <div class="opportunity">
-            <h2>South Africa Internships</h2>
-            <p>Field: Various disciplines, Volunteer and Professional</p>
-            <p>Website: <a href="https://www.eliabroad.org/south-africa-volunteer-internships">https://www.eliabroad.org/south-africa-volunteer-internships</a></p>
-        </div>
+    <!-- Article Content -->
+    <div class="container">
+        <a href="../" class="back-button">← Back to Blogs</a>
 
-        <div class="opportunity">
-            <h2>Charpak Lab Scholarship Program (France)</h2>
-            <p>Field: Scientific Research</p>
-            <p>Website: <a href="https://www.inde.campusfrance.org/charpak-lab-scholarship">https://www.inde.campusfrance.org/charpak-lab-scholarship</a></p>
-        </div>
+        <article class="article-content">
+            <p>International internships offer invaluable experiences for students pursuing careers in technology, research, and innovation. This comprehensive guide covers prestigious internship opportunities worldwide, helping you navigate the application process and maximize your chances of success.</p>
 
-        <div class="opportunity">
-            <h2>NTU Research Internships</h2>
-            <p>Field: Engineering, Science, Technology</p>
-            <p>Website: <a href="https://www.ntu.edu.sg/education/student-exchanges/india-connect@ntu">https://www.ntu.edu.sg/education/student-exchanges/india-connect@ntu</a></p>
-        </div>
+            <h2>Why Pursue International Internships?</h2>
+            <ul>
+                <li><strong>Global Exposure:</strong> Work with diverse teams and cutting-edge technologies</li>
+                <li><strong>Career Advancement:</strong> Build a strong professional network and resume</li>
+                <li><strong>Cultural Experience:</strong> Immerse yourself in new cultures and perspectives</li>
+                <li><strong>Competitive Edge:</strong> Stand out in the job market with international experience</li>
+                <li><strong>Financial Benefits:</strong> Many programs offer competitive stipends and travel allowances</li>
+            </ul>
 
-        <div class="opportunity">
-            <h2>MITCAS, Canada</h2>
-            <p>Field: Research internships in various fields</p>
-            <p>Website: <a href="https://www.mitacs.ca/en/programs/globalink/globalink-researchaward#eligibility">https://www.mitacs.ca/en/programs/globalink/globalink-researchaward#eligibility</a></p>
-        </div>
+            <h2>Top Technology Companies</h2>
 
-        <div class="opportunity">
-            <h2>Ecole Polytechnique International Internship Program (France)</h2>
-            <p>Field: General scientific internships</p>
-            <p>Website: <a href="https://programmes.polytechnique.edu/en/exchangeprograms/internship-program-for-international-students/program-details">https://programmes.polytechnique.edu/en/exchangeprograms/internship-program-for-international-students/program-details</a></p>
-        </div>
+            <div class="opportunity-card">
+                <h4>Google Summer of Code (GSoC)</h4>
+                <p class="meta">🌍 Remote | 💰 $1,500 - $6,600 | ⏰ Applications: January-April</p>
+                <p>A global program focused on bringing student developers into open-source software development. Work with leading open-source organizations on real-world projects.</p>
+                <ul>
+                    <li><strong>Duration:</strong> 10-22 weeks</li>
+                    <li><strong>Eligibility:</strong> Students 18+ enrolled in accredited institutions</li>
+                    <li><strong>Benefits:</strong> Stipend, mentorship, certificate</li>
+                    <li><strong>Website:</strong> summerofcode.withgoogle.com</li>
+                </ul>
+            </div>
 
-        <div class="opportunity">
-            <h2>Aalto University Internship Program (Finland)</h2>
-            <p>Field: Science and Engineering</p>
-            <p>Website: <a href="https://www.aalto.fi/en/aalto-science-institute/how-to-apply-to-the-asciinternship-programme">https://www.aalto.fi/en/aalto-science-institute/how-to-apply-to-the-asciinternship-programme</a></p>
-        </div>
+            <div class="opportunity-card">
+                <h4>Microsoft Internship Programs</h4>
+                <p class="meta">🌍 USA, Europe, Asia | 💰 $7,000 - $10,000/month | ⏰ Applications: September-October</p>
+                <p>Microsoft offers various internship programs for students in software engineering, data science, product management, and research.</p>
+                <ul>
+                    <li><strong>Duration:</strong> 12 weeks (Summer)</li>
+                    <li><strong>Eligibility:</strong> Undergraduate and graduate students</li>
+                    <li><strong>Benefits:</strong> Competitive salary, housing assistance, relocation</li>
+                    <li><strong>Website:</strong> careers.microsoft.com</li>
+                </ul>
+            </div>
 
-        <div class="opportunity">
-            <h2>NTHU Summer Internship Program</h2>
-            <p>Field: Research and academic internships</p>
-            <p>Duration: Mid May to Mid August</p>
-            <p>Website: <a href="https://eng-en.site.nthu.edu.tw/p/412-1060-3215.php">https://eng-en.site.nthu.edu.tw/p/412-1060-3215.php</a></p>
-        </div>
+            <div class="opportunity-card">
+                <h4>Meta (Facebook) University & Internships</h4>
+                <p class="meta">🌍 USA, UK, Ireland | 💰 $8,000 - $10,000/month | ⏰ Applications: August-October</p>
+                <p>Meta offers internships in software engineering, data science, product design, and business operations.</p>
+                <ul>
+                    <li><strong>Duration:</strong> 12-16 weeks</li>
+                    <li><strong>Eligibility:</strong> All degree levels</li>
+                    <li><strong>Benefits:</strong> Salary, housing, meals, transportation</li>
+                    <li><strong>Website:</strong> metacareers.com</li>
+                </ul>
+            </div>
 
-        <div class="opportunity">
-            <h2>KU Leuven Research Internships</h2>
-            <p>Field: Chemistry and related fields</p>
-            <p>Website: <a href="https://chem.kuleuven.be/en/contact">https://chem.kuleuven.be/en/contact</a></p>
-        </div>
+            <h2>Research Institutions</h2>
 
-        <div class="opportunity">
-            <h2>CERN Summer Internship Program (European Summer)</h2>
-            <p>Field: Physics, Engineering, Computer Science</p>
-            <p>Website: <a href="https://careers.cern/summer">https://careers.cern/summer</a></p>
-        </div>
+            <div class="opportunity-card">
+                <h4>CERN Summer Student Programme</h4>
+                <p class="meta">🌍 Switzerland | 💰 CHF 1,000/month + accommodation | ⏰ Applications: January</p>
+                <p>Work at the world's largest particle physics laboratory alongside leading scientists and engineers.</p>
+                <ul>
+                    <li><strong>Duration:</strong> 8-13 weeks</li>
+                    <li><strong>Eligibility:</strong> Undergraduate students in physics, engineering, or computer science</li>
+                    <li><strong>Benefits:</strong> Stipend, accommodation, travel allowance</li>
+                    <li><strong>Website:</strong> home.cern/summer-student-programme</li>
+                </ul>
+            </div>
 
-        <div class="opportunity">
-            <h2>SURI, Arizona State University, US</h2>
-            <p>Field: Engineering and Science</p>
-            <p>Options: Digital and offline (Offline internship requires a fee of $3000, no stipend provided)</p>
-            <p>Website: <a href="https://graduate.engineering.asu.edu/suri/">https://graduate.engineering.asu.edu/suri/</a></p>
-        </div>
+            <div class="opportunity-card">
+                <h4>MIT Lincoln Laboratory</h4>
+                <p class="meta">🌍 USA | 💰 $25-35/hour | ⏰ Applications: December-January</p>
+                <p>Research and development center focused on national security technologies, offering internships in AI, cybersecurity, and aerospace.</p>
+                <ul>
+                    <li><strong>Duration:</strong> 10-12 weeks</li>
+                    <li><strong>Eligibility:</strong> US citizens, undergraduate and graduate students</li>
+                    <li><strong>Benefits:</strong> Competitive salary, housing assistance</li>
+                    <li><strong>Website:</strong> ll.mit.edu/careers</li>
+                </ul>
+            </div>
 
-        <div class="opportunity">
-            <h2>Amgen Scholarship Asia</h2>
-            <p>Field: Science, Biomedical</p>
-            <p>Important: Requires TOEFL/IELTS scores and strong academic background.</p>
-            <p>Website: <a href="https://amgenscholars.com/asia-program">https://amgenscholars.com/asia-program</a></p>
-        </div>
+            <h2>International Exchange Programs</h2>
 
-        <div class="opportunity">
-            <h2>SURP, CHUK, Hongkong</h2>
-            <p>Field: Online research internships</p>
-            <p>Website: <a href="https://www.summer.cuhk.edu.hk/surp/">https://www.summer.cuhk.edu.hk/surp/</a></p>
-        </div>
+            <div class="opportunity-card">
+                <h4>DAAD WISE (Germany)</h4>
+                <p class="meta">🌍 Germany | 💰 €650/month + travel | ⏰ Applications: November-December</p>
+                <p>Working Internships in Science and Engineering program offering research internships at German universities and research institutions.</p>
+                <ul>
+                    <li><strong>Duration:</strong> 2-3 months</li>
+                    <li><strong>Eligibility:</strong> Undergraduate students in STEM fields</li>
+                    <li><strong>Benefits:</strong> Monthly stipend, travel allowance, insurance</li>
+                    <li><strong>Website:</strong> daad.de/wise</li>
+                </ul>
+            </div>
 
-        <div class="opportunity">
-            <h2>The Hong Kong University of Science and Technology</h2>
-            <p>Field: International visiting internship student program</p>
-            <p>Website: <a href="https://pg.ust.hk/prospective-students/programs/short-termstudy/international-visiting-internship-student-program">https://pg.ust.hk/prospective-students/programs/short-termstudy/international-visiting-internship-student-program</a></p>
-        </div>
+            <div class="opportunity-card">
+                <h4>Mitacs Globalink (Canada)</h4>
+                <p class="meta">🌍 Canada | 💰 CAD $10,500 + travel | ⏰ Applications: September</p>
+                <p>Research internship program for international undergraduate students to work with Canadian university faculty.</p>
+                <ul>
+                    <li><strong>Duration:</strong> 12 weeks</li>
+                    <li><strong>Eligibility:</strong> International students (excluding Canadian residents)</li>
+                    <li><strong>Benefits:</strong> Research allowance, airfare, accommodation support</li>
+                    <li><strong>Website:</strong> mitacs.ca/globalink</li>
+                </ul>
+            </div>
 
-        <div class="opportunity">
-            <h2>IST Austria Internship</h2>
-            <p>Field: Science and Technology</p>
-            <p>Website: <a href="https://phd.ist.ac.at/isternship/">https://phd.ist.ac.at/isternship/</a></p>
-        </div>
+            <h2>Space and Aerospace</h2>
 
-        <div class="opportunity">
-            <h2>S.N. Bose Scholarship (Indo-US Program)</h2>
-            <p>Field: Science and Engineering</p>
-            <p>Website: <a href="https://www.iusstf.org/program/sn-bose-scholars-program">https://www.iusstf.org/program/sn-bose-scholars-program</a></p>
-        </div>
-    </main>
+            <div class="opportunity-card">
+                <h4>NASA Internships</h4>
+                <p class="meta">🌍 USA | 💰 $18-25/hour | ⏰ Applications: Multiple sessions</p>
+                <p>Opportunities to work on space exploration projects, Earth science, aeronautics research, and more.</p>
+                <ul>
+                    <li><strong>Duration:</strong> 10-16 weeks</li>
+                    <li><strong>Eligibility:</strong> US citizens, high school to graduate students</li>
+                    <li><strong>Benefits:</strong> Hourly wage, possible travel opportunities</li>
+                    <li><strong>Website:</strong> intern.nasa.gov</li>
+                </ul>
+            </div>
 
+            <div class="opportunity-card">
+                <h4>ESA Young Graduate Trainee Programme</h4>
+                <p class="meta">🌍 Europe | 💰 €900-1,200/month | ⏰ Applications: June-October</p>
+                <p>European Space Agency program offering hands-on experience in space projects and operations.</p>
+                <ul>
+                    <li><strong>Duration:</strong> 12 months</li>
+                    <li><strong>Eligibility:</strong> Recent graduates from ESA member states</li>
+                    <li><strong>Benefits:</strong> Monthly allowance, relocation support</li>
+                    <li><strong>Website:</strong> esa.int/careers</li>
+                </ul>
+            </div>
+
+            <h2>Application Tips</h2>
+
+            <h3>1. Start Early</h3>
+            <p>Many international internship applications open 6-12 months in advance. Create a timeline and set reminders for application deadlines.</p>
+
+            <h3>2. Build a Strong Profile</h3>
+            <ul>
+                <li>Maintain a strong academic record (GPA above 3.0/4.0)</li>
+                <li>Participate in relevant projects and competitions</li>
+                <li>Contribute to open-source projects (especially for tech internships)</li>
+                <li>Develop a portfolio showcasing your work</li>
+                <li>Obtain strong letters of recommendation</li>
+            </ul>
+
+            <h3>3. Tailor Your Application</h3>
+            <p>Customize your resume and cover letter for each opportunity. Research the organization and highlight relevant skills and experiences.</p>
+
+            <h3>4. Prepare for Interviews</h3>
+            <ul>
+                <li>Practice coding problems (LeetCode, HackerRank)</li>
+                <li>Prepare for behavioral questions using the STAR method</li>
+                <li>Research the company and its recent projects</li>
+                <li>Prepare thoughtful questions for interviewers</li>
+            </ul>
+
+            <h3>5. Visa and Logistics</h3>
+            <p>Start visa applications early, as processing times can vary. Many programs provide guidance and support for visa applications.</p>
+
+            <h2>Funding and Scholarships</h2>
+
+            <div class="info-box">
+                <p><strong>Additional Funding Sources:</strong> Many universities offer travel grants for international internships. Check with your career services office and academic department for funding opportunities.</p>
+            </div>
+
+            <ul>
+                <li><strong>Fulbright Programs:</strong> Various programs for US citizens</li>
+                <li><strong>Benjamin A. Gilman International Scholarship:</strong> For US undergraduate students</li>
+                <li><strong>DAAD Scholarships:</strong> For international students to study/intern in Germany</li>
+                <li><strong>Erasmus+ Traineeships:</strong> For European students</li>
+            </ul>
+
+            <h2>Success Stories</h2>
+            <p>Many successful professionals credit international internships as pivotal experiences in their careers. These opportunities not only provide technical skills but also build soft skills like adaptability, cross-cultural communication, and global awareness—qualities highly valued by employers worldwide.</p>
+
+            <h2>Conclusion</h2>
+            <p>International internships are competitive but incredibly rewarding. With proper preparation, a strong application, and persistence, you can secure an opportunity that will shape your career trajectory. Start your search early, apply broadly, and don't get discouraged by rejections—they're part of the journey!</p>
+
+            <div class="info-box">
+                <p><strong>Action Items:</strong></p>
+                <ul>
+                    <li>Create a spreadsheet of opportunities with deadlines</li>
+                    <li>Update your resume and LinkedIn profile</li>
+                    <li>Request letters of recommendation 1-2 months in advance</li>
+                    <li>Join relevant communities and forums for application tips</li>
+                    <li>Start working on projects that align with your target opportunities</li>
+                </ul>
+            </div>
+        </article>
+    </div>
+
+    <!-- Footer -->
     <footer>
-        <p>© 2024 Ravi Kumawat.</p>
+        <div class="container">
+            <p>&copy; 2025 Ravi Kumawat. All rights reserved.</p>
+            <p>Built with ❤️ and code</p>
+        </div>
     </footer>
 </body>
 </html>

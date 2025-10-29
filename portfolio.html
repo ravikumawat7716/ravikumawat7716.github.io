@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravi Kumawat - Portfolio</title>
+    <meta name="description" content="Personal portfolio of Ravi Kumawat - Software Developer, Researcher, and Innovator">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4F46E5;
+            --secondary: #7C3AED;
+            --accent: #EC4899;
+            --dark: #1E293B;
+            --light: #F8FAFC;
+            --gray: #64748B;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Section */
+        section {
+            padding: 4rem 0;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-image {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .about-text h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .about-text p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .highlight-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .highlight-card p {
+            color: var(--gray);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s;
+            animation: fadeIn 0.5s;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .timeline-item .date {
+            color: var(--primary);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .timeline-item.hidden {
+            display: none;
+        }
+
+        .view-more-btn {
+            display: block;
+            margin: 2rem auto;
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .view-more-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-image {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-content p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .card-content .date {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .card-links a {
+            color: white;
+            background: var(--primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .card-links a:hover {
+            background: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Ravi Kumawat</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#happenings">Happenings</a></li>
+                <li><a href="#blogs">Blogs</a></li>
+                <li><a href="#projects">Projects</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div>
+                <h1>Hi, I'm Ravi Kumawat</h1>
+                <p>Software Developer | Researcher | Innovator</p>
+                <div class="social-links">
+                    <a href="https://github.com/ravikumawat7716create" target="_blank">GitHub</a>
+                    <a href="https://linkedin.com/in/ravikumawat" target="_blank">LinkedIn</a>
+                    <a href="mailto:ravi@example.com">Email</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <img src="https://images.unsplash.com/photo-1521790797524-1203132b3328?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODc5Mjd8MHwxfGFsbHx8fHx8fHx8fDE2NzE4NjA2MzY&ixlib=rb-4.0.3&q=80&w=400" alt="Ravi Kumawat" class="about-image">
+                <div class="about-text">
+                    <h3>Building the Future with Code & Innovation</h3>
+                    <p>I'm a passionate software developer and researcher currently working at KrishAI Technologies Pvt Ltd. My journey in technology has been driven by curiosity and a desire to solve real-world problems through innovative solutions.</p>
+                    <p>With experience ranging from research at IIT Ropar to building scalable applications, I specialize in creating impactful software that makes a difference. I love exploring new technologies, contributing to open-source projects, and sharing my knowledge through blogs and articles.</p>
+                </div>
+            </div>
+            <div class="highlights">
+                <div class="highlight-card">
+                    <h4>🎓 Education</h4>
+                    <p>Research Intern at IIT Ropar, continuously learning and growing in the field of technology</p>
+                </div>
+                <div class="highlight-card">
+                    <h4>💻 Technical Skills</h4>
+                    <p>Full-stack development, AI/ML, Cloud Computing, and Modern Web Technologies</p>
+                </div>
+                <div class="highlight-card">
+                    <h4>🚀 Innovation</h4>
+                    <p>Building cutting-edge solutions at KrishAI Technologies focused on AI-driven applications</p>
+                </div>
+                <div class="highlight-card">
+                    <h4>🌟 Impact</h4>
+                    <p>Committed to creating technology that solves real problems and improves lives</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Happenings Section -->
+    <section id="happenings">
+        <div class="container">
+            <h2>Happenings in Life/Career</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="date">1 Feb 2025</div>
+                    <div class="title">Joined KrishAI Technologies Pvt Ltd</div>
+                    <p>Started my journey as a Software Developer, working on innovative AI solutions and cutting-edge technologies.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="date">4 May 2024</div>
+                    <div class="title">Joined IIT Ropar as Research Intern</div>
+                    <p>Worked on research projects involving machine learning and data analysis at one of India's premier technical institutes.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="date">26 June 2023</div>
+                    <div class="title">Completed Full Stack Development Course</div>
+                    <p>Successfully completed an intensive full-stack web development program covering MERN stack and modern development practices.</p>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="date">15 Mar 2023</div>
+                    <div class="title">Won Hackathon at University</div>
+                    <p>Led a team to victory in a 48-hour hackathon, building an innovative solution for student collaboration.</p>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="date">10 Jan 2023</div>
+                    <div class="title">Published First Technical Article</div>
+                    <p>Wrote and published my first technical article on Medium about React best practices, receiving positive community feedback.</p>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="date">5 Nov 2022</div>
+                    <div class="title">Started Open Source Contributions</div>
+                    <p>Made my first contributions to open-source projects on GitHub, learning collaborative development practices.</p>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="date">20 Aug 2022</div>
+                    <div class="title">Completed Bachelor's Degree</div>
+                    <p>Graduated with a degree in Computer Science, specializing in software engineering and artificial intelligence.</p>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="date">1 Jul 2022</div>
+                    <div class="title">Internship at Tech Startup</div>
+                    <p>Completed a summer internship working on mobile app development and backend API integration.</p>
+                </div>
+            </div>
+            <button class="view-more-btn" id="viewMoreBtn" onclick="toggleTimeline()">View More</button>
+        </div>
+    </section>
+
+    <!-- Blogs Section -->
+    <section id="blogs">
+        <div class="container">
+            <h2>Latest Blogs</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1605379399642-870262d3d051?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODc5Mjd8MHwxfGFsbHx8fHx8fHx8fDE2NzE4NjA1OTY&ixlib=rb-4.0.3&q=80&w=400" alt="Blog" class="card-image">
+                    <div class="card-content">
+                        <div class="date">15 Oct 2025</div>
+                        <h3>React Best Practices in 2025</h3>
+                        <p>Exploring the latest patterns and practices for building scalable React applications in 2025.</p>
+                        <div class="card-links">
+                            <a href="#" target="_blank">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1558202424-576a6f961045?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODc5Mjd8MHwxfGFsbHx8fHx8fHx8fDE2NzE4NjA2MTc&ixlib=rb-4.0.3&q=80&w=400" alt="Blog" class="card-image">
+                    <div class="card-content">
+                        <div class="date">1 Oct 2025</div>
+                        <h3>The Future of AI and Machine Learning</h3>
+                        <p>My insights on where AI/ML is heading and its impact on software development.</p>
+                        <div class="card-links">
+                            <a href="#" target="_blank">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1521790797524-1203132b3328?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODc5Mjd8MHwxfGFsbHx8fHx8fHx8fDE2NzE4NjA2MzY&ixlib=rb-4.0.3&q=80&w=400" alt="Blog" class="card-image">
+                    <div class="card-content">
+                        <div class="date">20 Sep 2025</div>
+                        <h3>My Journey to Full Stack Development</h3>
+                        <p>Sharing my learning path, challenges, and tips for aspiring full-stack developers.</p>
+                        <div class="card-links">
+                            <a href="https://medium.com/@ravikumawat" target="_blank">Read on Medium</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1605379399642-870262d3d051?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODc5Mjd8MHwxfGFsbHx8fHx8fHx8fDE2NzE4NjA1OTY&ixlib=rb-4.0.3&q=80&w=400" alt="Project" class="card-image">
+                    <div class="card-content">
+                        <h3>AI-Powered Chatbot</h3>
+                        <p>Intelligent chatbot using NLP and machine learning for customer support automation.</p>
+                        <div class="card-links">
+                            <a href="https://github.com/ravikumawat7716create" target="_blank">GitHub</a>
+                            <a href="#" target="_blank">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1558202424-576a6f961045?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODc5Mjd8MHwxfGFsbHx8fHx8fHx8fDE2NzE4NjA2MTc&ixlib=rb-4.0.3&q=80&w=400" alt="Project" class="card-image">
+                    <div class="card-content">
+                        <h3>E-Commerce Platform</h3>
+                        <p>Full-stack e-commerce solution with payment integration, admin panel, and real-time inventory.</p>
+                        <div class="card-links">
+                            <a href="https://github.com/ravikumawat7716create" target="_blank">GitHub</a>
+                            <a href="#" target="_blank">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1521790797524-1203132b3328?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODc5Mjd8MHwxfGFsbHx8fHx8fHx8fDE2NzE4NjA2MzY&ixlib=rb-4.0.3&q=80&w=400" alt="Project" class="card-image">
+                    <div class="card-content">
+                        <h3>Collaborative Task Manager</h3>
+                        <p>Real-time task management app with team collaboration features and project tracking.</p>
+                        <div class="card-links">
+                            <a href="https://github.com/ravikumawat7716create" target="_blank">GitHub</a>
+                            <a href="#" target="_blank">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ravi Kumawat. All rights reserved.</p>
+            <p>Built with ❤️ and code</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Timeline toggle functionality
+        let timelineExpanded = false;
+
+        function toggleTimeline() {
+            const hiddenItems = document.querySelectorAll('.timeline-item.hidden');
+            const btn = document.getElementById('viewMoreBtn');
+            
+            if (!timelineExpanded) {
+                hiddenItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.remove('hidden');
+                    }, index * 100);
+                });
+                btn.textContent = 'Show Less';
+                timelineExpanded = true;
+            } else {
+                hiddenItems.forEach(item => {
+                    item.classList.add('hidden');
+                });
+                btn.textContent = 'View More';
+                timelineExpanded = false;
+                document.querySelector('#happenings').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Add scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and timeline items
+        document.querySelectorAll('.card, .timeline-item, .highlight-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

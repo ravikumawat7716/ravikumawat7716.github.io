@@ -1,137 +1,959 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ravi Kumawat – Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/lucide-static@latest/font/lucide.css" rel="stylesheet">
-  <style>
-    /* Example smooth scroll */
-    html {
-      scroll-behavior: smooth;
-    }
-    /* Example subtle hover effect */
-    .hover-fade:hover {
-      opacity: 0.8;
-      transition: opacity 0.3s;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravi Kumawat - Portfolio</title>
+    <meta name="description" content="Personal portfolio of Ravi Kumawat - Software Developer, Researcher, and Innovator">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366F1;
+            --secondary: #8B5CF6;
+            --accent: #A78BFA;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+            --gray: #6B7280;
+            --light-gray: #E5E7EB;
+            --card-bg: #FFFFFF;
+            --text-primary: #111827;
+            --text-secondary: #4B5563;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--light);
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #F0F4FF 0%, #E8EEFF 50%, #F5F3FF 100%);
+            color: var(--text-primary);
+            padding: 8rem 0 6rem;
+            text-align: center;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s;
+            color: var(--text-primary);
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            animation: fadeInUp 1s;
+            font-weight: 400;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Section */
+        section {
+            padding: 4rem 0;
+        }
+
+        section h2 {
+            font-size: 2.25rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--text-primary);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-image {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .about-text h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+            font-weight: 600;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid var(--light-gray);
+            transition: all 0.3s;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-color: var(--primary);
+        }
+
+        .highlight-card h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .highlight-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid var(--light-gray);
+            border-left: 3px solid var(--primary);
+            transition: all 0.3s;
+            animation: fadeIn 0.5s;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-left-color: var(--secondary);
+        }
+
+        .timeline-item .date {
+            color: var(--primary);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .timeline-item.hidden {
+            display: none;
+        }
+
+        .view-more-btn {
+            display: block;
+            margin: 2rem auto;
+            padding: 0.875rem 2.5rem;
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
+        }
+
+        .view-more-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid var(--light-gray);
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+
+        .card-image {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            background: linear-gradient(135deg, #E0E7FF 0%, #EDE9FE 100%);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+
+        .card-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .card-content .date {
+            color: var(--gray);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .card-links {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .card-links a {
+            color: var(--primary);
+            background: #F0F4FF;
+            padding: 0.5rem 1.25rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .card-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        /* Footer */
+        footer {
+            background: #F9FAFB;
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid var(--light-gray);
+            margin-top: 4rem;
+        }
+        
+        footer p {
+            margin: 0.25rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            nav .container {
+                padding: 0 1.5rem;
+            }
+
+            nav ul {
+                gap: 0.75rem;
+                font-size: 0.9rem;
+            }
+
+            nav .logo {
+                font-size: 1.25rem;
+            }
+
+            .hero {
+                padding: 5rem 0 4rem;
+                min-height: 70vh;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+                line-height: 1.2;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .social-links {
+                flex-wrap: wrap;
+            }
+
+            .social-links a {
+                padding: 0.625rem 1.25rem;
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            section h2 {
+                font-size: 1.875rem;
+                margin-bottom: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-text h3 {
+                font-size: 1.5rem;
+            }
+
+            .about-text p {
+                font-size: 1rem;
+            }
+
+            .highlights {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .highlight-card {
+                padding: 1.5rem;
+            }
+
+            .timeline {
+                padding-left: 0;
+            }
+
+            .timeline-item {
+                padding: 1.25rem;
+            }
+
+            .timeline-item .title {
+                font-size: 1.1rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .card-content {
+                padding: 1.25rem;
+            }
+
+            .card-links {
+                flex-direction: column;
+            }
+
+            .card-links a {
+                text-align: center;
+            }
+
+            .view-more-btn {
+                padding: 0.75rem 2rem;
+                font-size: 0.95rem;
+            }
+
+            footer {
+                padding: 2rem 0;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav .container {
+                flex-direction: column;
+                gap: 0.75rem;
+                padding: 0.5rem 1rem;
+            }
+
+            nav ul {
+                gap: 0.5rem;
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 1.875rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .social-links a {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            section h2 {
+                font-size: 1.625rem;
+            }
+
+            .about-text h3 {
+                font-size: 1.35rem;
+            }
+
+            .highlight-card h4 {
+                font-size: 1.1rem;
+            }
+
+            .timeline-item .title {
+                font-size: 1rem;
+            }
+
+            .view-more-btn {
+                width: 100%;
+                padding: 0.875rem 1.5rem;
+            }
+        }
+    </style>
 </head>
-<body class="bg-white text-gray-900 antialiased">
-
-  <!-- Hero / Landing -->
-  <section class="min-h-screen flex flex-col justify-center items-start px-8 md:px-16 lg:px-32">
-    <h1 class="text-5xl md:text-6xl font-bold leading-tight">Ravi Kumawat</h1>
-    <p class="mt-4 text-xl md:text-2xl text-gray-700 max-w-2xl">
-      AI/ML professional — Generative AI, backend & DevOps.  
-      BS (4-year) in Data Science, IIT Madras.
-    </p>
-    <div class="mt-8 flex flex-wrap gap-4">
-      <a href="#projects" class="px-6 py-3 bg-indigo-600 text-white rounded-md hover-fade">Projects</a>
-      <a href="#contact" class="px-6 py-3 border border-gray-900 text-gray-900 rounded-md hover-fade">Contact</a>
-    </div>
-  </section>
-
-  <!-- Projects / Work Section -->
-  <section id="projects" class="py-24 px-8 md:px-16 lg:px-32 bg-gray-50">
-    <h2 class="text-4xl font-semibold">Selected Projects</h2>
-    <div class="mt-12 grid md:grid-cols-2 gap-10">
-      <!-- Repeat project card -->
-      <div class="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition-shadow">
-        <h3 class="text-2xl font-medium">Generative AI Products — evolvue.ai</h3>
-        <p class="mt-3 text-gray-600">Founding Engineer at KRISHAI Technologies, building GenAI products under Krish Naik. Backend + DevOps.</p>
-        <div class="mt-4 flex flex-wrap gap-2">
-          <span class="text-sm border px-2 py-1 rounded-full text-gray-600">GenAI</span>
-          <span class="text-sm border px-2 py-1 rounded-full text-gray-600">Backend</span>
-          <span class="text-sm border px-2 py-1 rounded-full text-gray-600">DevOps</span>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Ravi Kumawat</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#happenings">Happenings</a></li>
+                <li><a href="#blogs">Blogs</a></li>
+                <li><a href="#projects">Projects</a></li>
+            </ul>
         </div>
-        <div class="mt-4">
-          <a href="https://evolvue.ai/about" class="text-indigo-600 hover:underline">View ⟶</a>
-        </div>
-      </div>
+    </nav>
 
-      <div class="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition-shadow">
-        <h3 class="text-2xl font-medium">Deep Learning for Medical Imaging</h3>
-        <p class="mt-3 text-gray-600">Research intern at IIT Ropar: applied CNNs for segmentation and classification; collaborated with PGIMER Chandigarh.</p>
-        <div class="mt-4 flex flex-wrap gap-2">
-          <span class="text-sm border px-2 py-1 rounded-full text-gray-600">PyTorch</span>
-          <span class="text-sm border px-2 py-1 rounded-full text-gray-600">nnUNet</span>
-          <span class="text-sm border px-2 py-1 rounded-full text-gray-600">Medical Imaging</span>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div>
+                <h1>Hi, I'm Ravi Kumawat</h1>
+                <p>AI/ML Engineer | Full-Stack Developer | Research Enthusiast</p>
+                <div class="social-links">
+                    <a href="https://github.com/ravikumawat7716" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/ravikumawat7716/" target="_blank">LinkedIn</a>
+                    <a href="mailto:ravikumawat7716@gmail.com">Email</a>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <div class="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition-shadow">
-        <h3 class="text-2xl font-medium">Show Ticket Booking Platform</h3>
-        <p class="mt-3 text-gray-600">Full-stack app using Flask, Vue.js, Redis, AWS EC2 deployment with CI/CD.</p>
-        <div class="mt-4">
-          <a href="https://github.com/ravikumawat7716/Show-Ticketing" class="text-indigo-600 hover:underline">View ⟶</a>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <img src="Ravi Kumawat.png" alt="Ravi Kumawat" class="about-image">
+                <div class="about-text">
+                    <h3>AI/ML Professional & Full-Stack Developer</h3>
+                    <p>AI/ML professional with a BS in Data Science and Applications from IIT Madras. Skilled in Machine Learning, Deep Learning, LLMs, Full-Stack Development, and Medical Imaging. Experienced in Generative AI and software engineering through industry roles and research collaborations.</p>
+                    <p>Adept at building production-ready applications, scalable deployments, and applying AI to solve real-world challenges. Currently contributing as a Software Engineer (Founding Engineer, evolvue.ai) at KRISHAI Technologies Pvt Ltd, Bangalore.</p>
+                </div>
+            </div>
+            <div class="highlights">
+                <div class="highlight-card">
+                    <h4>🎓 Education</h4>
+                    <p>BS in Data Science and Applications from IIT Madras (2021-2025)</p>
+                </div>
+                <div class="highlight-card">
+                    <h4>💻 Technical Skills</h4>
+                    <p>Python, JavaScript, SQL, PyTorch, Flask, Vue.js, AWS, GCP, Docker</p>
+                </div>
+                <div class="highlight-card">
+                    <h4>🚀 Current Role</h4>
+                    <p>Software Engineer (Founding Engineer) at KRISHAI Technologies, building evolvue.ai under Krish Naik</p>
+                </div>
+                <div class="highlight-card">
+                    <h4>🔬 Research Experience</h4>
+                    <p>Deep Learning & Medical Imaging research at IIT Ropar in collaboration with PGIMER Chandigarh</p>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <div class="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition-shadow">
-        <h3 class="text-2xl font.medium">GenAI Powered LMS</h3>
-        <p class="mt-3 text-gray-600">Designed an LMS integrating Llama 3.1 with AI chatbot support for personalized learning.</p>
-        <div class="mt-4">
-          <a href="https://github.com/ravikumawat7716/soft-engg-project-may-2024-se-may-23" class="text-indigo-600 hover:underline">View ⟶</a>
+    <!-- Happenings Section -->
+    <section id="happenings">
+        <div class="container">
+            <h2>Happenings in Life/Career</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="date">12 Feb 2025</div>
+                    <div class="title">AI Agents Fundamentals Certification</div>
+                    <p>Completed AI Agents Fundamentals certification from Hugging Face, gaining expertise in building intelligent AI agents.</p>
+                    <div class="card-links" style="margin-top: 1rem;">
+                        <a href="https://huggingface.co/datasets/agents-course/certificates/resolve/main/certificates/ravikumawat/2025-02-12.png" target="_blank">View Certificate</a>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="date">1 Feb 2025</div>
+                    <div class="title">Joined KrishAI Technologies Pvt Ltd</div>
+                    <p>Started as Software Engineer (Founding Engineer - evolvue.ai), developing GenAI products under Krish Naik's guidance. Working on backend development and DevOps.</p>
+                    <div class="card-links" style="margin-top: 1rem;">
+                        <a href="https://evolvue.ai/about" target="_blank">About evolvue.ai</a>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="date">Dec 2024</div>
+                    <div class="title">Completed Research Internship at IIT Ropar</div>
+                    <p>Concluded 8-month research internship working on Deep Learning, CNNs for Computer Vision and Medical Imaging in collaboration with PGIMER Chandigarh. Used MONAI, nnUNet, CVAT, and 3D Slicer.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="date">Oct 2024</div>
+                    <div class="title">DevOps Consultant at Biofield Power Pvt Ltd</div>
+                    <p>Set up CI/CD pipelines using AWS and GCP, collaborated with development team for production-ready code optimization.</p>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="date">2024</div>
+                    <div class="title">Ram Shriram Scholarship Award</div>
+                    <p>Received the prestigious Ram Shriram Scholarship from Ram Shriram Foundation, USA.</p>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="date">2024</div>
+                    <div class="title">Deep Learning with PyTorch: Image Segmentation</div>
+                    <p>Completed certification from Coursera on Deep Learning with PyTorch focusing on Image Segmentation techniques.</p>
+                    <div class="card-links" style="margin-top: 1rem;">
+                        <a href="https://coursera.org/verify/BIF8RWE10FZQ" target="_blank">View Certificate</a>
+                    </div>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="date">2024</div>
+                    <div class="title">Google Cloud Computing Foundations Certification</div>
+                    <p>Completed Google Cloud Computing Foundations certification from NPTEL, enhancing cloud computing skills.</p>
+                    <div class="card-links" style="margin-top: 1rem;">
+                        <a href="https://nptel.ac.in/noc/E_Certificate/NPTEL24CS131S55180029903821416" target="_blank">View Certificate</a>
+                    </div>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="date">2024</div>
+                    <div class="title">Large Language Models Certification</div>
+                    <p>Completed Large Language Models certification from IIT Madras, deepening understanding of LLM architecture and applications.</p>
+                    <div class="card-links" style="margin-top: 1rem;">
+                        <a href="https://ds.study.iitm.ac.in/document_verification/2bf286d5e567950069269ceede47baea493efc0b57f154b47ad49833cb4d8821" target="_blank">View Certificate</a>
+                    </div>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="date">4 May 2024</div>
+                    <div class="title">Joined IIT Ropar as Research Intern</div>
+                    <p>Started research internship working on Deep Learning and CNNs for Computer Vision and Medical Imaging projects at IIT Ropar.</p>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="date">2023</div>
+                    <div class="title">Microsoft Azure Fundamentals (AZ-900) Certification</div>
+                    <p>Achieved Microsoft Certified: Azure Fundamentals (AZ-900) certification, demonstrating cloud computing proficiency.</p>
+                    <div class="card-links" style="margin-top: 1rem;">
+                        <a href="https://www.credly.com/badges/4bcc3cf9-26d4-4e03-94e1-16a2f4befd37/" target="_blank">View Certificate</a>
+                    </div>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="date">2023</div>
+                    <div class="title">RCAT Scholarship Award</div>
+                    <p>Awarded scholarship by Rajasthan Center for Advanced Technology, DOITC, Government of Rajasthan.</p>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="date">2023</div>
+                    <div class="title">TATA Capital Scholarship Award</div>
+                    <p>Recipient of the prestigious TATA Capital Scholarship for academic excellence.</p>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="date">Dec 2023</div>
+                    <div class="title">Started Teaching Assistant Role at IIT Madras</div>
+                    <p>Began guiding students in Modern Application Development I & II projects and conducting viva examinations for CS2003P and CS2006P courses.</p>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="date">2022</div>
+                    <div class="title">ISRO Remote Sensing Data Classification Certification</div>
+                    <p>Completed Machine Learning & Deep Learning for Remote Sensing Data Classification certification from ISRO.</p>
+                    <div class="card-links" style="margin-top: 1rem;">
+                        <a href="https://certificate.iirs.gov.in/checkstatus.php?uid=795037a28fb6652f5a66b0edbdaf5a1a&enm=20221001566308" target="_blank">View Certificate</a>
+                    </div>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="date">2022</div>
+                    <div class="title">Won KHOJ Startup Yatra Hackathon at BITS Pilani</div>
+                    <p>Secured first place at the KHOJ Startup Yatra hackathon hosted by BITS Pilani, showcasing innovative startup solutions.</p>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="date">18 Aug 2022</div>
+                    <div class="title">Presented on Big Data Analytics at Rajasthan Digifest</div>
+                    <p>Delivered a presentation on Big Data Analytics at Rajasthan Digifest held at Birla Auditorium. The event was organized by Department of Information Technology & Communications (DOITC), Government of Rajasthan.</p>
+                    <div class="card-links" style="margin-top: 1rem;">
+                        <a href="https://drive.google.com/file/d/1gv7TM-0l44Q0-GkxrPgGQEwYR_5cBMcX/view" target="_blank">View Document</a>
+                        <a href="https://www.linkedin.com/feed/update/urn:li:activity:6966801905062686720/" target="_blank">LinkedIn Post</a>
+                    </div>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="date">2021</div>
+                    <div class="title">L&T Merit Scholarship Award</div>
+                    <p>Recipient of prestigious Larsen & Toubro Merit Scholarship for academic excellence.</p>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="date">2021</div>
+                    <div class="title">Volunteered at PanIIT Alumni PIWOT</div>
+                    <p>Served as event volunteer at PanIIT Alumni India's PIWOT (Pan IIT Workshop on Technology) 2021.</p>
+                    <div class="card-links" style="margin-top: 1rem;">
+                        <a href="https://drive.google.com/file/d/1SQnOL1RijdX9urZQ-sFVMd1bySO6L3hk/view" target="_blank">Certificate</a>
+                    </div>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="date">Jun 2017</div>
+                    <div class="title">Rank 3 in Rajdhani Founda Brain Dangal 2017</div>
+                    <p>Secured 3rd rank in Rajdhani Founda Brain Dangal 2017. Awarded with a laptop as prize for the achievement.</p>
+                    <div class="card-links" style="margin-top: 1rem;">
+                        <a href="https://www.rajdhanigroup.in/images/syllabus/6.pdf" target="_blank">View News</a>
+                    </div>
+                </div>
+                <div class="timeline-item hidden">
+                    <div class="date">21 May 2017</div>
+                    <div class="title">Rank 1 in Bansal Talent Search Examination</div>
+                    <p>Achieved top rank in Bansal Talent Search Examination 2017. Awarded ₹11,000 cash prize and 90% scholarship on entire tuition fee for 11th & 12th class studies at their institute.</p>
+                    <div class="card-links" style="margin-top: 1rem;">
+                        <a href="https://www.facebook.com/photo/?fbid=1387178137986235&set=pb.100063999647502.-2207520000" target="_blank">News Photo 1</a>
+                        <a href="https://www.facebook.com/photo/?fbid=1387177687986280&set=pb.100063999647502.-2207520000" target="_blank">News Photo 2</a>
+                        <a href="https://www.facebook.com/photo/?fbid=1386537998050249&set=pb.100063999647502.-2207520000" target="_blank">News Photo 3</a>
+                    </div>
+                </div>
+            </div>
+            <button class="view-more-btn" id="viewMoreBtn" onclick="toggleTimeline()">View More</button>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="py-24 px-8 md:px-16 lg:px-32">
-    <h2 class="text-4xl font-semibold">Skills & Technologies</h2>
-    <div class="mt-10 flex flex-wrap gap-4">
-      <span class="px-4 py-2 border rounded-lg text-gray-700">Generative AI</span>
-      <span class="px-4 py-2 border rounded-lg text-gray-700">Deep Learning</span>
-      <span class="px-4 py-2 border rounded-lg text-gray-700">Full-stack Development</span>
-      <span class="px-4 py-2 border rounded-lg text-gray-700">MLOps / Deployment</span>
-      <span class="px-4 py-2 border rounded-lg text-gray-700">AWS, GCP, Docker</span>
-      <span class="px-4 py-2 border rounded-lg text-gray-700">Python / JS / SQL / Java</span>
-    </div>
-  </section>
+    <!-- Blogs Section -->
+    <section id="blogs">
+        <div class="container">
+            <h2>Latest Blogs</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1605379399642-870262d3d051?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODc5Mjd8MHwxfGFsbHx8fHx8fHx8fDE2NzE4NjA1OTY&ixlib=rb-4.0.3&q=80&w=400" alt="AWS Deployment Blog" class="card-image">
+                    <div class="card-content">
+                        <h3>Deploying Flask Applications on AWS EC2</h3>
+                        <p>Complete guide to deploying Flask applications on AWS EC2 using Gunicorn and Nginx for production-ready deployment.</p>
+                        <div class="card-links">
+                            <a href="blogs/Application_Deployement_1">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1558202424-576a6f961045?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODc5Mjd8MHwxfGFsbHx8fHx8fHx8fDE2NzE4NjA2MTc&ixlib=rb-4.0.3&q=80&w=400" alt="SSL Setup Blog" class="card-image">
+                    <div class="card-content">
+                        <h3>DNS Setup, SSL, and HTTP Configuration</h3>
+                        <p>Learn how to configure custom domains, set up SSL certificates with Let's Encrypt, and secure your Flask application.</p>
+                        <div class="card-links">
+                            <a href="blogs/Application_Deployement_2">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1521790797524-1203132b3328?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODc5Mjd8MHwxfGFsbHx8fHx8fHx8fDE2NzE4NjA2MzY&ixlib=rb-4.0.3&q=80&w=400" alt="Internships Blog" class="card-image">
+                    <div class="card-content">
+                        <h3>International Internship Opportunities</h3>
+                        <p>Comprehensive list of international internship and scholarship opportunities for students in STEM fields across the globe.</p>
+                        <div class="card-links">
+                            <a href="blogs/International_Internship_Opportunities">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="blogs/" style="color: var(--primary); background: #F0F4FF; padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s;">View All Blogs</a>
+            </div>
+        </div>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-24 px-8 md:px-16 lg:px-32 bg-gray-50">
-    <h2 class="text-4xl font-semibold">Let’s Connect</h2>
-    <p class="mt-4 text-lg text-gray-600 max-w-xl">I’m open to collaborations, job opportunities, mentorship — feel free to reach out.</p>
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1605379399642-870262d3d051?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODc5Mjd8MHwxfGFsbHx8fHx8fHx8fDE2NzE4NjA1OTY&ixlib=rb-4.0.3&q=80&w=400" alt="GenAI LMS" class="card-image">
+                    <div class="card-content">
+                        <h3>GenAI Powered Learning Management System</h3>
+                        <p>Full-stack LMS integrating Generative AI with Llama3.1 for personalized learning. Features AI chatbot for doubt resolution and programming assistance. Built with Flask, React.js, MongoDB, and Ollama.</p>
+                        <div class="card-links">
+                            <a href="https://github.com/ravikumawat7716/soft-engg-project-may-2024-se-may-23" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1558202424-576a6f961045?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODc5Mjd8MHwxfGFsbHx8fHx8fHx8fDE2NzE4NjA2MTc&ixlib=rb-4.0.3&q=80&w=400" alt="Show Ticketing" class="card-image">
+                    <div class="card-content">
+                        <h3>Show Ticket Booking Platform</h3>
+                        <p>Full-stack web application with Flask backend and Vue.js frontend. Implemented Redis caching, Gmail SMTP, Celery for async tasks, and deployed on AWS EC2 with Nginx reverse proxy.</p>
+                        <div class="card-links">
+                            <a href="https://github.com/ravikumawat7716/Show-Ticketing" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1521790797524-1203132b3328?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODc5Mjd8MHwxfGFsbHx8fHx8fHx8fDE2NzE4NjA2MzY&ixlib=rb-4.0.3&q=80&w=400" alt="Urban Waste" class="card-image">
+                    <div class="card-content">
+                        <h3>Urban Waste Management (Computer Vision)</h3>
+                        <p>Applied image preprocessing techniques and trained CNN models for waste classification. Evaluated performance using accuracy, precision, and recall metrics. Built with Python, OpenCV, and PyTorch.</p>
+                        <div class="card-links">
+                            <a href="#" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1605379399642-870262d3d051?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODc5Mjd8MHwxfGFsbHx8fHx8fHx8fDE2NzE4NjA1OTY&ixlib=rb-4.0.3&q=80&w=400" alt="Taxi Fare" class="card-image">
+                    <div class="card-content">
+                        <h3>Taxi Fare Prediction using Machine Learning</h3>
+                        <p>Preprocessed dataset with feature engineering and missing value handling. Trained and compared multiple ML models for fare prediction. Used Python, Pandas, NumPy, and Scikit-Learn.</p>
+                        <div class="card-links">
+                            <a href="https://github.com/ravikumawat7716/Taxi-Fare-Prediction-Using-Machine-Learning" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1558202424-576a6f961045?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODc5Mjd8MHwxfGFsbHx8fHx8fHx8fDE2NzE4NjA2MTc&ixlib=rb-4.0.3&q=80&w=400" alt="E-Governance" class="card-image">
+                    <div class="card-content">
+                        <h3>Customer Retention for E-Governance Services</h3>
+                        <p>Case study analyzing customer retention strategies. Cleaned dataset, performed statistical analysis, and created data visualizations. Tools: MS Excel, Pandas, NumPy, Matplotlib.</p>
+                        <div class="card-links">
+                            <a href="https://docs.google.com/presentation/d/14hJEQAia6aeQAGfE465pf9Rn6McQwA0x/" target="_blank">Presentation</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1521790797524-1203132b3328?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzODc5Mjd8MHwxfGFsbHx8fHx8fHx8fDE2NzE4NjA2MzY&ixlib=rb-4.0.3&q=80&w=400" alt="Time Management" class="card-image">
+                    <div class="card-content">
+                        <h3>Make Time Count - Productivity Research</h3>
+                        <p>Research project on time management and productivity. Reviewed academic papers and business reports, interviewed professionals. Team-based project using Google Docs, GitHub Projects, and Canva.</p>
+                        <div class="card-links">
+                            <a href="https://drive.google.com/file/d/17hT3sbhN6eU9GiWtKZS-ZLGafJO0G8J-/view?usp=sharing" target="_blank">Presentation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="mt-8 grid md:grid-cols-2 gap-10">
-      <div>
-        <h3 class="font-medium">Email</h3>
-        <a href="mailto:ravikumawat7716@gmail.com" class="mt-2 inline-flex items-center gap-2 text-indigo-600 hover:underline">
-          <i class="lucide lucide-mail"></i> ravikumawat7716@gmail.com
-        </a>
-        <div class="mt-6 flex gap-6">
-          <a href="https://github.com/ravikumawat7716" class="hover-fade"><i class="lucide lucide-github"></i> GitHub</a>
-          <a href="https://www.linkedin.com/in/ravikumawat7716/" class="hover-fade"><i class="lucide lucide-linkedin"></i> LinkedIn</a>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ravi Kumawat. All rights reserved.</p>
+            <p>Built with ❤️ and code</p>
         </div>
-      </div>
-      <form onsubmit="event.preventDefault(); window.location.href='mailto:ravikumawat7716@gmail.com';" class="space-y-5">
-        <div>
-          <label>Your Name</label>
-          <input required class="mt-2 block w-full px-4 py-3 border rounded-md" />
-        </div>
-        <div>
-          <label>Email</label>
-          <input type="email" required class="mt-2 block w-full px-4 py-3 border rounded-md" />
-        </div>
-        <div>
-          <label>Message</label>
-          <textarea required rows="4" class="mt-2 block w-full px-4 py-3 border rounded-md"></textarea>
-        </div>
-        <div>
-          <button type="submit" class="px-6 py-3 bg-indigo-600 text-white rounded-md hover-fade">Send Message</button>
-        </div>
-      </form>
-    </div>
-  </section>
+    </footer>
 
-  <!-- Footer -->
-  <footer class="py-12 px-8 md:px-16 lg:px-32 text-center text-gray-500">
-    © <script>document.write(new Date().getFullYear())</script> Ravi Kumawat  
-  </footer>
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
+        // Timeline toggle functionality
+        let timelineExpanded = false;
+
+        function toggleTimeline() {
+            const hiddenItems = document.querySelectorAll('.timeline-item.hidden');
+            const btn = document.getElementById('viewMoreBtn');
+            
+            if (!timelineExpanded) {
+                hiddenItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.remove('hidden');
+                    }, index * 100);
+                });
+                btn.textContent = 'Show Less';
+                timelineExpanded = true;
+            } else {
+                hiddenItems.forEach(item => {
+                    item.classList.add('hidden');
+                });
+                btn.textContent = 'View More';
+                timelineExpanded = false;
+                document.querySelector('#happenings').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Add scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and timeline items
+        document.querySelectorAll('.card, .timeline-item, .highlight-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>

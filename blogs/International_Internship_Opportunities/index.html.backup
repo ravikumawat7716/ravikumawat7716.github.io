@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Internship and Scholarship Opportunities | Ravi Kumawat</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        /* Inline styles specific to the blog page */
+        body {
+            background-color: #f9f9f9; /* Light background for better contrast */
+        }
+        h2 {
+            color: #4caf50; /* Updated to the greenish color from the header */
+        }
+        p {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        a:hover {
+            text-decoration-color: #4caf50;
+        }
+        .content {
+            margin-top: 150px;
+        }
+        .opportunity {
+            background-color: #fff; /* White background for each opportunity */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+            padding: 20px; /* Padding for content */
+            margin-bottom: 20px; /* Space between opportunities */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Ravi Kumawat</h1>
+        <p>BS Student at IIT Madras | Research Intern at IIT Ropar </p>
+        <nav>
+            <ul>
+                <li><a href="../../">Home</a></li>
+                <li><a href="../">Blogs</a></li>
+                <!-- <li><a href="../../#projects">Projects</a></li>
+                <li><a href="../../#skills">Skills</a></li> -->
+                <li><a href="../../#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        <h1>International Internship and Scholarship Opportunities</h1>
+
+        <div class="opportunity">
+            <h2>Max Planck Summer Internship Program - MaxSIP</h2>
+            <p>Field: Biology, Chemistry, Bioinformatics, Biophysics, Neuroscience and related fields</p>
+            <p>Website: <a href="https://imprs-ls.opencampus.net/en/node/186672">https://imprs-ls.opencampus.net/en/node/186672</a></p>
+        </div>
+
+        <div class="opportunity">
+            <h2>DAAD Wise Internships</h2>
+            <p>Field: General internships (various fields)</p>
+            <p>Application Deadline: November 1</p>
+            <p>Website: <a href="https://daad.de/go/en/stipa50015295">https://daad.de/go/en/stipa50015295</a></p>
+        </div>
+
+        <div class="opportunity">
+            <h2>South Africa Internships</h2>
+            <p>Field: Various disciplines, Volunteer and Professional</p>
+            <p>Website: <a href="https://www.eliabroad.org/south-africa-volunteer-internships">https://www.eliabroad.org/south-africa-volunteer-internships</a></p>
+        </div>
+
+        <div class="opportunity">
+            <h2>Charpak Lab Scholarship Program (France)</h2>
+            <p>Field: Scientific Research</p>
+            <p>Website: <a href="https://www.inde.campusfrance.org/charpak-lab-scholarship">https://www.inde.campusfrance.org/charpak-lab-scholarship</a></p>
+        </div>
+
+        <div class="opportunity">
+            <h2>NTU Research Internships</h2>
+            <p>Field: Engineering, Science, Technology</p>
+            <p>Website: <a href="https://www.ntu.edu.sg/education/student-exchanges/india-connect@ntu">https://www.ntu.edu.sg/education/student-exchanges/india-connect@ntu</a></p>
+        </div>
+
+        <div class="opportunity">
+            <h2>MITCAS, Canada</h2>
+            <p>Field: Research internships in various fields</p>
+            <p>Website: <a href="https://www.mitacs.ca/en/programs/globalink/globalink-researchaward#eligibility">https://www.mitacs.ca/en/programs/globalink/globalink-researchaward#eligibility</a></p>
+        </div>
+
+        <div class="opportunity">
+            <h2>Ecole Polytechnique International Internship Program (France)</h2>
+            <p>Field: General scientific internships</p>
+            <p>Website: <a href="https://programmes.polytechnique.edu/en/exchangeprograms/internship-program-for-international-students/program-details">https://programmes.polytechnique.edu/en/exchangeprograms/internship-program-for-international-students/program-details</a></p>
+        </div>
+
+        <div class="opportunity">
+            <h2>Aalto University Internship Program (Finland)</h2>
+            <p>Field: Science and Engineering</p>
+            <p>Website: <a href="https://www.aalto.fi/en/aalto-science-institute/how-to-apply-to-the-asciinternship-programme">https://www.aalto.fi/en/aalto-science-institute/how-to-apply-to-the-asciinternship-programme</a></p>
+        </div>
+
+        <div class="opportunity">
+            <h2>NTHU Summer Internship Program</h2>
+            <p>Field: Research and academic internships</p>
+            <p>Duration: Mid May to Mid August</p>
+            <p>Website: <a href="https://eng-en.site.nthu.edu.tw/p/412-1060-3215.php">https://eng-en.site.nthu.edu.tw/p/412-1060-3215.php</a></p>
+        </div>
+
+        <div class="opportunity">
+            <h2>KU Leuven Research Internships</h2>
+            <p>Field: Chemistry and related fields</p>
+            <p>Website: <a href="https://chem.kuleuven.be/en/contact">https://chem.kuleuven.be/en/contact</a></p>
+        </div>
+
+        <div class="opportunity">
+            <h2>CERN Summer Internship Program (European Summer)</h2>
+            <p>Field: Physics, Engineering, Computer Science</p>
+            <p>Website: <a href="https://careers.cern/summer">https://careers.cern/summer</a></p>
+        </div>
+
+        <div class="opportunity">
+            <h2>SURI, Arizona State University, US</h2>
+            <p>Field: Engineering and Science</p>
+            <p>Options: Digital and offline (Offline internship requires a fee of $3000, no stipend provided)</p>
+            <p>Website: <a href="https://graduate.engineering.asu.edu/suri/">https://graduate.engineering.asu.edu/suri/</a></p>
+        </div>
+
+        <div class="opportunity">
+            <h2>Amgen Scholarship Asia</h2>
+            <p>Field: Science, Biomedical</p>
+            <p>Important: Requires TOEFL/IELTS scores and strong academic background.</p>
+            <p>Website: <a href="https://amgenscholars.com/asia-program">https://amgenscholars.com/asia-program</a></p>
+        </div>
+
+        <div class="opportunity">
+            <h2>SURP, CHUK, Hongkong</h2>
+            <p>Field: Online research internships</p>
+            <p>Website: <a href="https://www.summer.cuhk.edu.hk/surp/">https://www.summer.cuhk.edu.hk/surp/</a></p>
+        </div>
+
+        <div class="opportunity">
+            <h2>The Hong Kong University of Science and Technology</h2>
+            <p>Field: International visiting internship student program</p>
+            <p>Website: <a href="https://pg.ust.hk/prospective-students/programs/short-termstudy/international-visiting-internship-student-program">https://pg.ust.hk/prospective-students/programs/short-termstudy/international-visiting-internship-student-program</a></p>
+        </div>
+
+        <div class="opportunity">
+            <h2>IST Austria Internship</h2>
+            <p>Field: Science and Technology</p>
+            <p>Website: <a href="https://phd.ist.ac.at/isternship/">https://phd.ist.ac.at/isternship/</a></p>
+        </div>
+
+        <div class="opportunity">
+            <h2>S.N. Bose Scholarship (Indo-US Program)</h2>
+            <p>Field: Science and Engineering</p>
+            <p>Website: <a href="https://www.iusstf.org/program/sn-bose-scholars-program">https://www.iusstf.org/program/sn-bose-scholars-program</a></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Ravi Kumawat.</p>
+    </footer>
+</body>
+</html>

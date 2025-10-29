@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploying Flask Applications on AWS EC2 - Ravi Kumawat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            background-color: #f8fafc;
+        }
+
+        .header {
+            background: linear-gradient(to right, #1e3a8a, #1e40af);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .nav-links {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .nav-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            padding: 5px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .blog-post {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-title {
+            color: #1e3a8a;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-meta {
+            color: #64748b;
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+        }
+
+        .blog-content h2 {
+            color: #1e3a8a;
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .blog-content p {
+            margin-bottom: 1rem;
+            color: #475569;
+        }
+
+        pre {
+            background: #f1f5f9;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+            color: #475569;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: #1e3a8a;
+            color: white;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Technical Blog</h1>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <a href="../index.html">Blog</a>
+        </div>
+    </header>
+
+    <main class="content">
+        <article class="blog-post">
+            <h1 class="blog-title">Deploying Flask Applications on AWS EC2</h1>
+            <div class="blog-meta">
+                <span>Published on March 15, 2024</span>
+                <span> • </span>
+                <span>10 min read</span>
+            </div>
+
+            <div class="blog-content">
+                <p>Deploying a Flask application properly is crucial for ensuring your web application runs efficiently and securely in a production environment. This guide will walk you through the process of deploying a Flask application on AWS EC2 using Gunicorn as the WSGI server and Nginx as the reverse proxy.</p>
+
+                <h2>Prerequisites</h2>
+                <ul>
+                    <li>An AWS account</li>
+                    <li>Basic knowledge of command line and SSH</li>
+                    <li>A Flask application ready for deployment</li>
+                </ul>
+
+                <h2>1. Launch an EC2 Instance</h2>
+                <p>First, we'll need to set up our EC2 instance:</p>
+                <ul>
+                    <li>Sign in to AWS Management Console</li>
+                    <li>Navigate to EC2 Dashboard</li>
+                    <li>Click "Launch Instance"</li>
+                    <li>Choose Ubuntu Server 20.04 LTS</li>
+                    <li>Select t2.micro (free tier eligible)</li>
+                    <li>Configure security group to allow HTTP (80) and SSH (22)</li>
+                    <li>Create or select an existing key pair</li>
+                </ul>
+
+                <h2>2. Connect to Your Instance</h2>
+                <pre><code>ssh -i /path/to/your-key.pem ubuntu@your-public-ip</code></pre>
+
+                <h2>3. Install Required Packages</h2>
+                <pre><code>sudo apt update
+sudo apt upgrade -y
+sudo apt install python3 python3-pip python3-venv nginx git -y</code></pre>
+
+                <h2>4. Set Up Your Application</h2>
+                <pre><code>cd ~
+git clone https://github.com/yourusername/your-repo.git
+cd your-repo
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt</code></pre>
+
+                <h2>5. Configure Gunicorn</h2>
+                <p>Create a systemd service file for Gunicorn:</p>
+                <pre><code>sudo nano /etc/systemd/system/myflaskapp.service</code></pre>
+
+                <p>Add the following configuration:</p>
+                <pre><code>[Unit]
+Description=Gunicorn instance for myflaskapp
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/your-repo
+Environment="PATH=/home/ubuntu/your-repo/.venv/bin"
+ExecStart=/home/ubuntu/your-repo/.venv/bin/gunicorn --workers 3 --bind unix:myflaskapp.sock -m 007 app:app
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+
+                <h2>6. Configure Nginx</h2>
+                <pre><code>sudo nano /etc/nginx/sites-available/myflaskapp</code></pre>
+
+                <p>Add the following configuration:</p>
+                <pre><code>server {
+    listen 80;
+    server_name your-public-ip;
+
+    location / {
+        proxy_pass http://unix:/home/ubuntu/your-repo/myflaskapp.sock;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}</code></pre>
+
+                <h2>7. Enable and Start Services</h2>
+                <pre><code>sudo ln -s /etc/nginx/sites-available/myflaskapp /etc/nginx/sites-enabled
+sudo nginx -t
+sudo systemctl restart nginx
+sudo systemctl start myflaskapp
+sudo systemctl enable myflaskapp</code></pre>
+
+                <h2>Conclusion</h2>
+                <p>Your Flask application should now be running on your EC2 instance. You can access it using your instance's public IP address. Remember to:</p>
+                <ul>
+                    <li>Set up HTTPS using Let's Encrypt for production</li>
+                    <li>Implement proper monitoring and logging</li>
+                    <li>Regularly update your packages and security groups</li>
+                    <li>Back up your application and data regularly</li>
+                </ul>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <p>Made with ❤️ by Bolt.new</p>
+    </footer>
+</body>
+</html>
