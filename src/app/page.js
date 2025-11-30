@@ -840,7 +840,7 @@ export default function Portfolio() {
               <div className="relative inline-block mb-6">
                 <div className="w-32 h-32 mx-auto lg:mx-0 rounded-full p-1 bg-gradient-to-br from-blue-500 to-teal-400">
                   <img 
-                    src="https://www.ravikumawat.com/Ravi%20Kumawat.png" 
+                    src="/Ravi Kumawat.png"
                     alt="Ravi" 
                     className="w-full h-full rounded-full object-cover border-4 border-white dark:border-zinc-900"
                   />
